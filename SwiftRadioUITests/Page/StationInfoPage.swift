@@ -10,9 +10,46 @@ import XCTest
 
 final class StationInfoPage: CommonPage {
     
-    private let stationImage = "stationImage"
-    private let okayButton = "okayButton"
-    private let stationNameLabel = "stationNameLabel"
-    private let stationDeskLabel = "stationDeskLabel"
+    private lazy var stationImage: XCUIElement = {
+        app.images["stationImage"]
+    }()
+    
+    private lazy var okayButton: XCUIElement = {
+        app.buttons["okayButton"]
+    }()
+    
+    private lazy var stationNameLabel: XCUIElement = {
+        app.staticTexts["stationNameLabel"]
+    }()
+    
+    private lazy var stationDeskLabel: XCUIElement = {
+        app.staticTexts["stationDeskLabel"]
+    }()
+    
+    @discardableResult
+    func tapOnOkay() -> Self {
+        okayButton.tapElement()
+        return self
+    }
+    
+    @discardableResult
+    func tapOnBackButton() {
+        
+    }
+    
+    @discardableResult
+    func checkStationImage() {
+        
+    }
+    
+    @discardableResult
+    func checkStationNameLabel() {
+        
+    }
+    
+    @discardableResult
+    func checkStationDeskLabel() {
+        
+    }
     
 }

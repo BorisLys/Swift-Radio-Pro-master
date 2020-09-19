@@ -71,6 +71,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1175440177321434" green="0.11671449244022369" blue="0.14129963517189026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="stationCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="stationDescLabel" destination="Ptr-mN-34N" id="mGP-95-uEF"/>
                                             <outlet property="stationImageView" destination="GQm-Mf-6pw" id="kCR-0m-tHf"/>
@@ -358,7 +361,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-bZ-bdt" userLabel="PauseButton">
                                         <rect key="frame" x="114" y="0.0" width="45" height="45"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="pauseButton"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="stopButton"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="ebX-Zd-lOX"/>
                                             <constraint firstAttribute="height" constant="45" id="vqL-YC-gUW"/>
@@ -848,7 +851,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2md-Am-VN1"/>
+        <segue reference="Z22-bU-Ytg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NowPlayingBars" width="19.666666030883789" height="19"/>

@@ -68,6 +68,8 @@
 		DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */; };
 		DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */; };
 		DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */; };
+		DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */; };
+		DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPage.swift; sourceTree = "<group>"; };
+		DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
+		DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		2C5545BB1C1124DE00728469 /* SwiftRadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				DAEBB1FF25165D750065ECF0 /* Extensions */,
 				DAEBB1E625161ECC0065ECF0 /* Tests */,
 				DAEBB1E225161E240065ECF0 /* Page */,
 				2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */,
@@ -359,8 +364,17 @@
 			isa = PBXGroup;
 			children = (
 				DAEBB1E725161EE50065ECF0 /* CommonTest.swift */,
+				DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		DAEBB1FF25165D750065ECF0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,12 +490,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */,
 				DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */,
 				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
 				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
 				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
 				DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */,
 				2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */,
+				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
 			);

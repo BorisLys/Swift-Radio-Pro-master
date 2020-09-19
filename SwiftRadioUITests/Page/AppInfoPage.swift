@@ -10,14 +10,51 @@ import XCTest
 
 final class AppInfoPage: CommonPage {
     
-    private let closeButton = "closeButton"
-    private let swiftImage = "swiftImage"
-    private let aboutButton = "aboutButton"
-    private let websiteButton = "websiteButton"
-    private let openSourceLabel = "openSourceLabel"
-    private let authorsLabel = "authorsLabel"
+    private lazy var closeButton: XCUIElement = {
+        app.buttons["closeButton"]
+    }()
     
+    private lazy var swiftImage: XCUIElement = {
+        app.images["swiftImage"]
+    }()
     
-
+    private lazy var aboutButton: XCUIElement = {
+        app.buttons["aboutButton"]
+    }()
+    
+    private lazy var websiteButton: XCUIElement = {
+        app.buttons["websiteButton"]
+    }()
+    
+    private lazy var openSourceLabel: XCUIElement = {
+        app.staticTexts["openSourceLabel"]
+    }()
+    
+    private lazy var authorsLabel: XCUIElement = {
+        app.staticTexts["authorsLabel"]
+    }()
+    
+    @discardableResult
+    func closeInfoPage() -> Self {
+        closeButton.tapElement()
+        return self
+    }
+    
+    @discardableResult
+    func openWebsite() -> Self {
+        websiteButton.tapElement()
+        return self
+    }
+    
+    @discardableResult
+    func openAbout() -> Self {
+        aboutButton.tapElement()
+        return self
+    }
+    
+    @discardableResult
+    func checkAuthors() {
+        
+    }
     
 }
