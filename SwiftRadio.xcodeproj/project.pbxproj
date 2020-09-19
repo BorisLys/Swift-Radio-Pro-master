@@ -61,7 +61,13 @@
 		94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
-		DAEBB1E1251616F50065ECF0 /* AccessibleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E0251616F50065ECF0 /* AccessibleProtocol.swift */; };
+		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
+		DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E725161EE50065ECF0 /* CommonTest.swift */; };
+		DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */; };
+		DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */; };
+		DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */; };
+		DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */; };
+		DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,7 +142,13 @@
 		94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DropShadow.swift"; sourceTree = "<group>"; };
 		CAA8FDB42000614600050F77 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		DAEBB1E0251616F50065ECF0 /* AccessibleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleProtocol.swift; sourceTree = "<group>"; };
+		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		DAEBB1E725161EE50065ECF0 /* CommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTest.swift; sourceTree = "<group>"; };
+		DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPage.swift; sourceTree = "<group>"; };
+		DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsPage.swift; sourceTree = "<group>"; };
+		DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoPage.swift; sourceTree = "<group>"; };
+		DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoPage.swift; sourceTree = "<group>"; };
+		DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,8 @@
 		2C5545BB1C1124DE00728469 /* SwiftRadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				DAEBB1E625161ECC0065ECF0 /* Tests */,
+				DAEBB1E225161E240065ECF0 /* Page */,
 				2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */,
 				2C5545BE1C1124DE00728469 /* Info.plist */,
 			);
@@ -239,7 +253,6 @@
 				94E976191B1A8BFB00F52B1E /* Model */,
 				94D2608E1B45D0F800DE671C /* ViewControllers */,
 				9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */,
-				DAEBB1E0251616F50065ECF0 /* AccessibleProtocol.swift */,
 				CAA8FDB42000614600050F77 /* RadioPlayer.swift */,
 				94D260901B45D20000DE671C /* SwiftRadio-Settings.swift */,
 				CF72ACE621F714D000461EED /* Main.storyboard */,
@@ -327,6 +340,27 @@
 				81AD229A21646DEA002ADFDD /* Reachability.swift */,
 			);
 			path = FRadioPlayer;
+			sourceTree = "<group>";
+		};
+		DAEBB1E225161E240065ECF0 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				DAEBB1E425161E5B0065ECF0 /* MainPage.swift */,
+				DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */,
+				DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */,
+				DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */,
+				DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */,
+				DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		DAEBB1E625161ECC0065ECF0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DAEBB1E725161EE50065ECF0 /* CommonTest.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,7 +476,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */,
+				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
+				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
+				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
+				DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */,
 				2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */,
+				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
+				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +510,6 @@
 				5F22BA421F72AD5A00CB5911 /* SoundPlayer.swift in Sources */,
 				6258DCD822D93A3500166C65 /* LogoShareView.swift in Sources */,
 				5F22BA4A1F72AD5A00CB5911 /* DesignableTextView.swift in Sources */,
-				DAEBB1E1251616F50065ECF0 /* AccessibleProtocol.swift in Sources */,
 				949BBB401ACC9DEE005B7C26 /* DataManager.swift in Sources */,
 				5F22BA4E1F72AD5A00CB5911 /* Misc.swift in Sources */,
 				5F22BA441F72AD5A00CB5911 /* SpringButton.swift in Sources */,
