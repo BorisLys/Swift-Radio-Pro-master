@@ -43,6 +43,13 @@ class SmokeTest: CommonTest {
             .checkSongStoppedLabel()
     }
     
+    func testErrorStatusForSong() {
+        mainPage
+            .tapOnStation(index: 1)
+        stationDetailsPage
+            .checkSongErrorLabel()
+    }
+    
     func testOpenStationDetailsByTapOnNowPlayingButton() {
         let nameOfStation = mainPage.getStationName(indexOfStation: 0)
         mainPage

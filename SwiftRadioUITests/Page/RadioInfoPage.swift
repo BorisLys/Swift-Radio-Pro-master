@@ -80,8 +80,8 @@ final class RadioInfoPage: CommonPage {
     
     @discardableResult
     func checkTextView() -> Self {
-        textView.checkLabelEqualToString(textViewText)
+        textView.checkValueEqualToString(textViewText)
         return self
     }
-
+    
 }

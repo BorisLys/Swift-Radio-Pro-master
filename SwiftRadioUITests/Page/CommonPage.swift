@@ -29,7 +29,7 @@ class CommonPage {
     
     @discardableResult
     func checkMainDomain(domain: String) -> Self {
-                XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
+        XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
         return self
     }
     

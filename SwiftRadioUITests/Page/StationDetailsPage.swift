@@ -10,9 +10,12 @@ import XCTest
 
 final class StationDetailsPage: CommonPage {
     
-    var pause = "Station Paused"
-    var stopped = "Station Stopped"
-    
+    enum PlayingStatus: String {
+        case pause = "Station Paused"
+        case stopped = "Station Stopped"
+        case error = "Error Playing"
+    }
+        
     private lazy var albumArtImage: XCUIElement = {
         app.images["albumArtImage"]
     }()
@@ -110,13 +113,19 @@ final class StationDetailsPage: CommonPage {
     
     @discardableResult
     func checkSongPauseLabel() -> Self {
-        songLabel.checkLabelContainsString(pause)
+        songLabel.checkLabelContainsString(PlayingStatus.pause.rawValue)
         return self
     }
     
     @discardableResult
     func checkSongStoppedLabel() -> Self {
-        songLabel.checkLabelContainsString(stopped)
+        songLabel.checkLabelContainsString(PlayingStatus.stopped.rawValue)
+        return self
+    }
+    
+    @discardableResult
+    func checkSongErrorLabel() -> Self {
+        songLabel.checkLabelContainsString(PlayingStatus.error.rawValue)
         return self
     }
     
