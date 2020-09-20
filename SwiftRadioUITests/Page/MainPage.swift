@@ -10,6 +10,8 @@ import XCTest
 
 final class MainPage: CommonPage {
     
+    // MARK: - UI elements and variables
+    
     private let stationImage = "stationImage"
     private let stationName = "stationName"
     private let stationCell = "stationCell"
@@ -27,7 +29,9 @@ final class MainPage: CommonPage {
     private lazy var playbutton: XCUIElement = {
         app.buttons["nowPlayingButton"]
     }()
-        
+    
+    // MARK: -  Actions
+    
     @discardableResult
     func tapOnStation(index: Int) -> Self {
         app.cells.matching(identifier: stationCell).element(boundBy: index).tapElement()
@@ -63,6 +67,8 @@ final class MainPage: CommonPage {
         app.cells.matching(identifier: stationCell).element(boundBy: indexOfStation).staticTexts[stationName].firstMatch.label
     }
     
+    // MARK: -  Verification
+    
     @discardableResult
     func checkTextInNowPlayingButton() {
         
@@ -83,10 +89,5 @@ final class MainPage: CommonPage {
         playbutton.checkLabelEqualToString(text)
         return self
     }
-    
-//    @discardableResult
-//    func checkPlayButtonContain(text: String) -> String {
-//        playbutton
-//    }
-        
+            
 }

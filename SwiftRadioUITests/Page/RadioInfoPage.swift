@@ -9,6 +9,8 @@
 import XCTest
 
 final class RadioInfoPage: CommonPage {
+    
+    // MARK: - UI elements and variables
         
     private lazy var logoImage: XCUIElement = {
         app.images["logoImage"]
@@ -42,6 +44,8 @@ final class RadioInfoPage: CommonPage {
     private let nameOfAppText = "Radio App"
     private let textViewText = "FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.\n+ Background Audio performance\n+iTunes API integration to automatically download album art\n+ Loads and parses Icecast metadata (i.e. artist & track names)\n+ Ability to update stations from server without resubmitting to the app store.\n"
     
+    // MARK: -  Actions
+    
     @discardableResult
     func tapOnOkay() -> Self {
         okayButton.tapElement()
@@ -59,6 +63,8 @@ final class RadioInfoPage: CommonPage {
         emailButton.tapElement()
         return self
     }
+    
+    // MARK: -  Verification
     
     @discardableResult
     func checkLogo() -> Self {

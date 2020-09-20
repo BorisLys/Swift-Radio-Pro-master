@@ -10,6 +10,8 @@ import XCTest
 
 final class StationInfoPage: CommonPage {
     
+    // MARK: - UI elements and variables
+    
     private lazy var stationImage: XCUIElement = {
         app.images["stationImage"]
     }()
@@ -33,11 +35,15 @@ final class StationInfoPage: CommonPage {
     private let stationDescDescription = "The Music Starts Here"
     private let textViewDescription = "All your favorite country hits and artists, from Johnny Cash to Taylor Swift, on 1.FM's Absolute Country, playing non-stop crooners and banjos, dance-tunes and fiddles, ballads and harmonicas. Absolute Country focuses on 5th, 6th and 7th generation Country (from the 90s on) but often delves into classic, older tunes as well."
     
+    // MARK: -  Actions
+    
     @discardableResult
     func tapOnOkay() -> Self {
         okayButton.tapElement()
         return self
     }
+    
+    // MARK: -  Verification
     
     @discardableResult
     func checkTextInNavbarButton(stationName: String) -> Self {

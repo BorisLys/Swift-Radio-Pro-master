@@ -10,6 +10,8 @@ import XCTest
 
 final class AppInfoPage: CommonPage {
     
+    // MARK: - UI elements and variables
+    
     private lazy var closeButton: XCUIElement = {
         app.buttons["closeButton"]
     }()
@@ -37,6 +39,8 @@ final class AppInfoPage: CommonPage {
     private let openSourceText = "Open Source Project"
     private let authorsText = "Matt Fecher & Fethi El Hassasna"
     
+    // MARK: -  Actions
+    
     @discardableResult
     func closeInfoPage() -> Self {
         closeButton.tapElement()
@@ -54,6 +58,8 @@ final class AppInfoPage: CommonPage {
         aboutButton.tapElement()
         return self
     }
+    
+    // MARK: -  Verification
     
     @discardableResult
     func checkAuthors() -> Self {

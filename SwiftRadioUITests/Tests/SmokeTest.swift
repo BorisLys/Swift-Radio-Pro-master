@@ -27,6 +27,9 @@ class SmokeTest: CommonTest {
             .nowPlayingButtonIsExist(isExist: true)
     }
     
+    /*
+     Проверка статуса - пауза для трека с радио
+     */
     func testPauseStation() {
         mainPage
             .tapOnStation(index: 0)
@@ -35,6 +38,9 @@ class SmokeTest: CommonTest {
             .checkSongPauseLabel()
     }
     
+    /*
+     Проверка статуса - стоп для трека с радио
+     */
     func testStopStation() {
         mainPage
             .tapOnStation(index: 0)
@@ -43,6 +49,9 @@ class SmokeTest: CommonTest {
             .checkSongStoppedLabel()
     }
     
+    /*
+     Проверка статуса - ошибка для трека с радио
+     */
     func testErrorStatusForSong() {
         mainPage
             .tapOnStation(index: 1)

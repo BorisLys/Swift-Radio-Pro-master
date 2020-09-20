@@ -10,6 +10,8 @@ import XCTest
 
 final class StationDetailsPage: CommonPage {
     
+    // MARK: - UI elements and variables
+    
     enum PlayingStatus: String {
         case pause = "Station Paused"
         case stopped = "Station Stopped"
@@ -74,17 +76,9 @@ final class StationDetailsPage: CommonPage {
     private lazy var airPlayView: XCUIElement = {
         app.otherElements["airPlayView"]
     }()
-        
-    @discardableResult
-    func checkNavbarTitle(stationName: String) -> Self {
-        let navbarTitle: XCUIElement = {
-            app.navigationBars[stationName].otherElements[stationName]
-        }()
-        
-        navbarTitle.checkLabelEqualToString(stationName)
-        return self
-    }
     
+    // MARK: -  Actions
+        
     @discardableResult
     func tapOnPlay() -> Self {
         playButton.tapElement()
@@ -111,6 +105,8 @@ final class StationDetailsPage: CommonPage {
         return self
     }
     
+    // MARK: -  Verification
+    
     @discardableResult
     func checkSongPauseLabel() -> Self {
         songLabel.checkLabelContainsString(PlayingStatus.pause.rawValue)
@@ -126,6 +122,16 @@ final class StationDetailsPage: CommonPage {
     @discardableResult
     func checkSongErrorLabel() -> Self {
         songLabel.checkLabelContainsString(PlayingStatus.error.rawValue)
+        return self
+    }
+    
+    @discardableResult
+    func checkNavbarTitle(stationName: String) -> Self {
+        let navbarTitle: XCUIElement = {
+            app.navigationBars[stationName].otherElements[stationName]
+        }()
+        
+        navbarTitle.checkLabelEqualToString(stationName)
         return self
     }
     

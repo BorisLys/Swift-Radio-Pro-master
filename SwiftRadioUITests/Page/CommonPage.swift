@@ -10,6 +10,8 @@ import XCTest
 
 class CommonPage {
     
+    // MARK: - UI elements and variables
+    
     let app = XCUIApplication()
     let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
     
@@ -27,17 +29,15 @@ class CommonPage {
     
     private let nameOfMainPageNavbarText = "Swift Radio"
     
-    @discardableResult
-    func checkMainDomain(domain: String) -> Self {
-        XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
-        return self
-    }
+    // MARK: -  Actions
     
     @discardableResult
     func tapOnBackButton() -> Self {
         backButton.tapElement()
         return self
     }
+    
+    // MARK: -  Verification
     
     @discardableResult
     func checkLabelInBackButton(text: String) -> Self {
@@ -48,6 +48,12 @@ class CommonPage {
     @discardableResult
     func checkNavbarTitleOnMainPage() -> Self {
         nameOfMainPageNavbarTitle.checkLabelEqualToString(nameOfMainPageNavbarText)
+        return self
+    }
+    
+    @discardableResult
+    func checkMainDomain(domain: String) -> Self {
+        XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
         return self
     }
     
