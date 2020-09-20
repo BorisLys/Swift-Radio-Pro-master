@@ -38,6 +38,10 @@ final class RadioInfoPage: CommonPage {
         app.textViews["textView"]
     }()
     
+    private let versionText = "Xcode 9 / Swift 4"
+    private let nameOfAppText = "Radio App"
+    private let textViewText = "FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.\n+ Background Audio performance\n+iTunes API integration to automatically download album art\n+ Loads and parses Icecast metadata (i.e. artist & track names)\n+ Ability to update stations from server without resubmitting to the app store.\n"
+    
     @discardableResult
     func tapOnOkay() -> Self {
         okayButton.tapElement()
@@ -57,23 +61,27 @@ final class RadioInfoPage: CommonPage {
     }
     
     @discardableResult
-    func logoIsExist() {
-
+    func checkLogo() -> Self {
+        logoImage.checkExistence()
+        return self
     }
     
     @discardableResult
-    func versionIsExist() {
-        
+    func checkVersion() -> Self {
+        versionLabel.checkLabelEqualToString(versionText)
+        return self
     }
     
     @discardableResult
-    func nameOfAppIsExist() {
-        
+    func checkNameOfApp() -> Self {
+        nameOfAppLabel.checkLabelEqualToString(nameOfAppText)
+        return self
     }
     
     @discardableResult
-    func textViewIsExist() {
-        
+    func checkTextView() -> Self {
+        textView.checkLabelEqualToString(textViewText)
+        return self
     }
 
 }

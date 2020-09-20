@@ -54,26 +54,5 @@ class SmokeTest: CommonTest {
         stationDetailsPage
             .checkNavbarTitle(stationName: nameOfStation)
     }
-    
-    func testOpenWebsiteFromAppInfo() {
-        mainPage
-            .tapOnInfoButton()
-        appInfoPage
-            .openWebsite()
-            .checkMainDomain(domain: "github.com")
-    }
-    
-    func testOpenAboutFromAppInfo() {
-        mainPage
-            .tapOnInfoButton()
-        appInfoPage
-            .openAbout()
-        
-    }
-    
-    func testStationInfo() {
-        mainPage.tapOnStation(index: 0)
-        stationDetailsPage.tapOnInfoButton()
-    }
-    
+            
 }

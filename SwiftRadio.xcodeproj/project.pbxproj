@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */; };
 		53113F39230C720900462C0E /* ShareImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53113F38230C720900462C0E /* ShareImageGenerator.swift */; };
 		5F22BA3C1F72AD5A00CB5911 /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22BA1E1F72AD3700CB5911 /* SpringLabel.swift */; };
 		5F22BA3D1F72AD5A00CB5911 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22BA1F1F72AD3900CB5911 /* BlurView.swift */; };
@@ -71,6 +70,7 @@
 		DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */; };
 		DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */; };
 		DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */; };
+		DAEBB2052517491B0065ECF0 /* AppInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,6 @@
 
 /* Begin PBXFileReference section */
 		2C5545BA1C1124DE00728469 /* SwiftRadioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRadioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRadioUITests.swift; sourceTree = "<group>"; };
 		2C5545BE1C1124DE00728469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53113F38230C720900462C0E /* ShareImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImageGenerator.swift; sourceTree = "<group>"; };
 		5F22BA1E1F72AD3700CB5911 /* SpringLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
@@ -155,6 +154,7 @@
 		DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
 		DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtensions.swift; sourceTree = "<group>"; };
 		DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoTest.swift; sourceTree = "<group>"; };
+		DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,10 +178,10 @@
 		2C5545BB1C1124DE00728469 /* SwiftRadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				2C5545BE1C1124DE00728469 /* Info.plist */,
+				DAEBB1E225161E240065ECF0 /* Page */,
 				DAEBB1FF25165D750065ECF0 /* Extensions */,
 				DAEBB1E625161ECC0065ECF0 /* Tests */,
-				2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */,
-				2C5545BE1C1124DE00728469 /* Info.plist */,
 			);
 			path = SwiftRadioUITests;
 			sourceTree = "<group>";
@@ -366,8 +366,8 @@
 			children = (
 				DAEBB1E725161EE50065ECF0 /* CommonTest.swift */,
 				DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */,
+				DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */,
 				DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */,
-				DAEBB1E225161E240065ECF0 /* Page */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -494,12 +494,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */,
+				DAEBB2052517491B0065ECF0 /* AppInfoTest.swift in Sources */,
 				DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */,
 				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
 				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
 				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
 				DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */,
-				2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */,
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,

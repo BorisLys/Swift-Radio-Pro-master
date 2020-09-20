@@ -21,6 +21,12 @@ class CommonPage {
         app.buttons["URL"]
     }()
     
+    private lazy var nameOfMainPageNavbarTitle: XCUIElement = {
+        app.navigationBars.otherElements[nameOfMainPageNavbarText]
+    }()
+    
+    private let nameOfMainPageNavbarText = "Swift Radio"
+    
     @discardableResult
     func checkMainDomain(domain: String) -> Self {
                 XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
@@ -36,6 +42,12 @@ class CommonPage {
     @discardableResult
     func checkLabelInBackButton(text: String) -> Self {
         backButton.checkLabelEqualToString(text)
+        return self
+    }
+    
+    @discardableResult
+    func checkNavbarTitleOnMainPage() -> Self {
+        nameOfMainPageNavbarTitle.checkLabelEqualToString(nameOfMainPageNavbarText)
         return self
     }
     

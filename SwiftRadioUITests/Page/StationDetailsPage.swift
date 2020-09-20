@@ -71,11 +71,7 @@ final class StationDetailsPage: CommonPage {
     private lazy var airPlayView: XCUIElement = {
         app.otherElements["airPlayView"]
     }()
-    
-//    private lazy var navbarTitle: XCUIElement = {
-//        app.navigationBars["Absolute Country Hits"].otherElements["Absolute Country Hits"]
-//    }()
-    
+        
     @discardableResult
     func checkNavbarTitle(stationName: String) -> Self {
         let navbarTitle: XCUIElement = {

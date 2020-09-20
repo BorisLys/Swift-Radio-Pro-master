@@ -34,6 +34,9 @@ final class AppInfoPage: CommonPage {
         app.staticTexts["authorsLabel"]
     }()
     
+    private let openSourceText = "Open Source Project"
+    private let authorsText = "Matt Fecher & Fethi El Hassasna"
+    
     @discardableResult
     func closeInfoPage() -> Self {
         closeButton.tapElement()
@@ -53,8 +56,21 @@ final class AppInfoPage: CommonPage {
     }
     
     @discardableResult
-    func checkAuthors() {
-        
+    func checkAuthors() -> Self {
+        authorsLabel.checkLabelEqualToString(authorsText)
+        return self
+    }
+    
+    @discardableResult
+    func checkOpenSource() -> Self {
+        openSourceLabel.checkLabelEqualToString(openSourceText)
+        return self
+    }
+    
+    @discardableResult
+    func checkImage() -> Self {
+        swiftImage.checkExistence()
+        return self
     }
     
 }
