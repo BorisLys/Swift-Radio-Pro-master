@@ -70,6 +70,7 @@
 		DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */; };
 		DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */; };
 		DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */; };
+		DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
 		DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtensions.swift; sourceTree = "<group>"; };
+		DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +180,6 @@
 			children = (
 				DAEBB1FF25165D750065ECF0 /* Extensions */,
 				DAEBB1E625161ECC0065ECF0 /* Tests */,
-				DAEBB1E225161E240065ECF0 /* Page */,
 				2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */,
 				2C5545BE1C1124DE00728469 /* Info.plist */,
 			);
@@ -364,7 +365,9 @@
 			isa = PBXGroup;
 			children = (
 				DAEBB1E725161EE50065ECF0 /* CommonTest.swift */,
+				DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */,
 				DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */,
+				DAEBB1E225161E240065ECF0 /* Page */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
+				DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

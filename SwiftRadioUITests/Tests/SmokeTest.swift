@@ -43,7 +43,7 @@ class SmokeTest: CommonTest {
             .checkSongStoppedLabel()
     }
     
-    func testOpenStationInfoByTapOnNowPlayingButton() {
+    func testOpenStationDetailsByTapOnNowPlayingButton() {
         let nameOfStation = mainPage.getStationName(indexOfStation: 0)
         mainPage
             .tapOnStation(index: 0)
@@ -52,7 +52,7 @@ class SmokeTest: CommonTest {
         mainPage
             .tapOnNowPlayingButton()
         stationDetailsPage
-            .checkSongPauseLabel()
+            .checkNavbarTitle(stationName: nameOfStation)
     }
     
     func testOpenWebsiteFromAppInfo() {

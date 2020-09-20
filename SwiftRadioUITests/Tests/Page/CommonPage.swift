@@ -33,4 +33,10 @@ class CommonPage {
         return self
     }
     
+    @discardableResult
+    func checkLabelInBackButton(text: String) -> Self {
+        backButton.checkLabelEqualToString(text)
+        return self
+    }
+    
 }
