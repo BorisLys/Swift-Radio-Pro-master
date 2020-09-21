@@ -6,9 +6,7 @@
 //  Copyright © 2020 matthewfecher.com. All rights reserved.
 //
 
-import Foundation
-
-class SmokeTest: CommonTest {
+final class SmokeTest: CommonTest {
     
     private let mainPage = MainPage()
     private let stationDetailsPage = StationDetailsPage()

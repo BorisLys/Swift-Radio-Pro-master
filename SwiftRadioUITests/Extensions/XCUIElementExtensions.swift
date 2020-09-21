@@ -8,35 +8,8 @@
 
 import XCTest
 
-enum XCUIElementEvent: String {
-    case enabled = "enabled == true"
-    case exists = "exists == true"
-    case existsAndEnabled = "exists == true AND enabled == true"
-    case hidden = "exists == false"
-    case disabled = "exists == true AND enabled == false"
-}
-
 extension XCUIElement {
-    
-    @discardableResult
-    func wait(for event: XCUIElementEvent = .exists, time: TimeInterval = 10) -> XCUIElement {
-        let expectation = makeWaitExpectation(event: event)
-        let waitResult = XCTWaiter.wait(for: [expectation], timeout: time)
         
-        XCTAssertTrue(waitResult == .completed, "Event '\(event.rawValue)' for \(self) did not happen")
-        
-        return self
-    }
-    
-    private func makeWaitExpectation(event: XCUIElementEvent) -> XCTNSPredicateExpectation {
-        let predicate = NSPredicate(format: event.rawValue)
-        return XCTNSPredicateExpectation(predicate: predicate, object: self)
-    }
-    
-    func checkVisibility(_ shouldBeVisible: Bool) {
-        XCTAssert(self.frame.isEmpty != shouldBeVisible, "check visibility failed")
-    }
-            
     func tapElement() {
         checkExistence()
         self.tap()
@@ -73,10 +46,6 @@ extension XCUIElement {
             checkValue,
             "\(String(describing: self.value)) isn't match \(checkValue)"
         )
-    }
-    
-    func checkStringEqualToString(_ name1: String, name2: String) {
-        XCTAssertEqual(name1, name2, "\(name1) isn't match \(name2)")
     }
     
 }

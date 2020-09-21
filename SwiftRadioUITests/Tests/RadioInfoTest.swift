@@ -6,8 +6,6 @@
 //  Copyright © 2020 matthewfecher.com. All rights reserved.
 //
 
-import XCTest
-
 final class RadioInfoTest: CommonTest {
     
     private let mainPage = MainPage()
