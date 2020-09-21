@@ -12,11 +12,10 @@ final class MainPage: CommonPage {
     
     // MARK: - UI elements and variables
     
-    private let stationImage = "stationImage"
     private let stationName = "stationName"
     private let stationCell = "stationCell"
     private let stationDesc = "stationDesc"
-    private let noneSelectedStationText = "Choose a station above to begin"
+    private let stationImage = "stationImage"
     
     private lazy var infoNavbarButton: XCUIElement = {
         app.navigationBars.children(matching: .button).firstMatch
@@ -29,7 +28,7 @@ final class MainPage: CommonPage {
     private lazy var playbutton: XCUIElement = {
         app.buttons["nowPlayingButton"]
     }()
-    
+        
     // MARK: -  Actions
     
     @discardableResult
@@ -67,26 +66,45 @@ final class MainPage: CommonPage {
         app.cells.matching(identifier: stationCell).element(boundBy: indexOfStation).staticTexts[stationName].firstMatch.label
     }
     
+    @discardableResult
+    func getStationDesk(indexOfStation: Int) -> String {
+        app.cells.matching(identifier: stationCell).element(boundBy: indexOfStation).staticTexts[stationDesc].firstMatch.label
+    }
+    
+    @discardableResult
+    func getStationImage(indexOfStation: Int) -> XCUIElement {
+        app.cells.matching(identifier: stationCell).element(boundBy: indexOfStation).images[stationImage].firstMatch
+    }
+    
     // MARK: -  Verification
     
     @discardableResult
-    func checkTextInNowPlayingButton() {
-        
+    func checkTextInPlayingButton(text: String) -> Self {
+        playbutton.checkLabelEqualToString(text)
+        return self
     }
     
     @discardableResult
-    func checkStationName() {
-        
+    func checkStationName(indexOfStation: Int, stationName: String) -> Self {
+        XCTAssertEqual(getStationName(indexOfStation: indexOfStation), stationName, "\(getStationName(indexOfStation: indexOfStation)) isn't match \(stationName)")
+        return self
     }
     
     @discardableResult
-    func checkStationDesc() {
-        
+    func checkStationDesc(indexOfStation: Int, stationDesk: String) -> Self {
+        XCTAssertEqual(getStationDesk(indexOfStation: indexOfStation), stationDesk, "\(getStationDesk(indexOfStation: indexOfStation)) isn't match \(stationDesk)")
+        return self
     }
     
     @discardableResult
     func checkPlayButton(text: String) -> Self {
-        playbutton.checkLabelEqualToString(text)
+        playbutton.checkLabelContainsString(text)
+        return self
+    }
+    
+    @discardableResult
+    func checkStationImage(indexOfStation: Int) -> Self {
+        getStationImage(indexOfStation: indexOfStation).checkExistence()
         return self
     }
             

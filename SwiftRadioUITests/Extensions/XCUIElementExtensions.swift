@@ -75,4 +75,8 @@ extension XCUIElement {
         )
     }
     
+    func checkStringEqualToString(_ name1: String, name2: String) {
+        XCTAssertEqual(name1, name2, "\(name1) isn't match \(name2)")
+    }
+    
 }
