@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      manual:
+        description: 'Run?'
+        required: false
+        type: boolean
+
+jobs:
+  build:
+    name: Test
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Xcode
+        run: |
+          sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+      - name: Run Ui Tests
+        run: |
+          xcodebuild test \
+                    -scheme SwiftRadioUITests \
+                    -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
