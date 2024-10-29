@@ -69,7 +69,6 @@
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
 		DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E725161EE50065ECF0 /* CommonTest.swift */; };
-		DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */; };
 		DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */; };
 		DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */; };
 		DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */; };
@@ -160,7 +159,6 @@
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		DAEBB1E725161EE50065ECF0 /* CommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTest.swift; sourceTree = "<group>"; };
-		DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPage.swift; sourceTree = "<group>"; };
 		DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsPage.swift; sourceTree = "<group>"; };
 		DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoPage.swift; sourceTree = "<group>"; };
@@ -387,7 +385,6 @@
 				DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */,
 				DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */,
 				DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */,
-				DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */,
 				DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */,
 				B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */,
 			);
@@ -542,7 +539,6 @@
 				DAEBB2082517521D0065ECF0 /* RadioInfoTest.swift in Sources */,
 				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
 				B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */,
-				DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */,
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */,
 				B05F1B1B2CC79582007D10D5 /* BaseScreenProtocol.swift in Sources */,

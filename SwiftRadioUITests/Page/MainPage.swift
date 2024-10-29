@@ -22,7 +22,11 @@ struct MainPage: BaseScreen, NavigationBar {
         app.cells.matching(identifier: stationCell).element(boundBy: index).staticTexts["stationName"].firstMatch.label
     }
     
-    static func getStationDescription(index: Int) -> String {
+    static func getStationDescription(index: Int) -> XCUIElement {
+        app.cells.matching(identifier: stationCell).element(boundBy: index).staticTexts["stationDesc"].firstMatch
+    }
+    
+    static func getStationDescriptionName(index: Int) -> String {
         app.cells.matching(identifier: stationCell).element(boundBy: index).staticTexts["stationDesc"].firstMatch.label
     }
     

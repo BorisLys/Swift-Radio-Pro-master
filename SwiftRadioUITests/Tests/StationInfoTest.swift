@@ -11,25 +11,43 @@ final class StationInfoTest: CommonTest {
    /*
      Проверка отображение элементов на экране с информацией о станции, также корректную работу переходов по нажатию на кнопку назад(в Navigation bar) и ок на самом экране
      */
-//    func testOpenStationDetailsByTapOnNowPlayingButton() {
-//        let nameOfStation = mainPage.getStationName(indexOfStation: 0)
-//        mainPage
-//            .tapOnStation(index: 0)
-//        stationDetailsPage
-//            .tapOnInfoButton()
-//        stationInfoPage
-//            .checkStationNameLabel(stationName: nameOfStation)
-//            .checkStationImage()
-//            .checkStationDeskLabel()
-//            .checkLabelInBackButton(text: nameOfStation)
-//            .tapOnOkay()
-//        stationDetailsPage
-//            .checkNavbarTitle(stationName: nameOfStation)
-//            .tapOnInfoButton()
-//        stationInfoPage
-//            .tapOnBackButton()
-//        stationDetailsPage
-//            .checkNavbarTitle(stationName: nameOfStation)
-//    }
+    func testOpenStationDetailsByTapOnNowPlayingButton() {
+        let stationName = MainPage.getStationName(index: 0)
+        
+        step("Открыть первую станцию") {
+            MainPage.getStation(index: 0).tapElement()
+        }
+        step("Нажать на инфо кнопку") {
+            StationDetailsPage.infoButton.tapElement()
+            
+            step("Проверить отображение названия") {
+                StationInfoPage.stationNameLabel.verifyLabel(equal: stationName)
+
+            }
+            step("Проверить отображение картинки") {
+                StationInfoPage.stationImage.verifyElement()
+            }
+            step("Проверить отображение текста") {
+                StationInfoPage.stationDeskLabel.verifyElement()
+            }
+        }
+        step("Нажать кнопку ОК") {
+            StationInfoPage.okayButton.tapElement()
+            
+            step("Проверить название в Navigation bar") {
+                StationDetailsPage.navigationBarTitle.verifyLabel(equal: stationName)
+            }
+        }
+        step("Нажать на инфо кнопку") {
+            StationDetailsPage.infoButton.tapElement()
+        }
+        step("Нажать кнопку назад") {
+            StationInfoPage.navigationBarBackButton.tapElement()
+        }
+        step("Проверить название в Navigation bar") {
+            StationDetailsPage.navigationBarTitle.verifyLabel(equal: stationName)
+        }
+
+    }
 
 }

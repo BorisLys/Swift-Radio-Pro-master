@@ -45,17 +45,20 @@ final class SmokeTest: CommonTest {
             MainPage.playbutton.verifyLabelContain(contain: nameOfStation)
         }
     }
-//    
-//    /*
-//     Проверка отображения всех элементов в ячейке
-//     */
-//    func testElementExistOnScreen() {
-//        mainPage
-//        .checkStationName(indexOfStation: 0, stationName: "Absolute Country Hits")
-//        .checkStationDesc(indexOfStation: 0, stationDesk: "The Music Starts Here")
-//        .checkStationImage(indexOfStation: 0)
-//    }
-//    
+    
+    /*
+     Проверка отображения всех элементов в ячейке
+     */
+    func testElementExistOnScreen() {
+        step("Проверить отображение станции") {
+            MainPage.getStation(index: 0).verifyLabel(equal: "Absolute Country Hits")
+        }
+        step("Проерить отображение песни") {
+            MainPage.getStationDescription(index: 0).verifyLabel(equal: "The Music Starts Here")
+        }
+    }
+    
+
 //    /*
 //     Проверка статуса - пауза для трека с радио
 //     */

@@ -33,51 +33,5 @@ final class AppInfoTest: CommonTest {
             }
         }
     }
-    
-//    /*
-//     Проверка перехода в экран о радио через текущий экран по нажатию на кнопку "About и перехода обратно"
-//     */
-    func testOpenAboutFromAppInfo() {
-        let nameOfAppText = "Radio App"
-        
-        step("Нажать на кнопку инфо") {
-            MainPage.navigationBarBackButton.tapElement()
-        }
-        step("Нажать на кнопку About") {
-            AppInfoPage.aboutButton.tapElement()
-            
-            step("Проверить имя приложения") {
-                RadioInfoPage.nameOfAppLabel.verifyLabel(equal: nameOfAppText)
-            }
-//            step("") {
-//                <#code#>
-//            }
-        }
-
-        
-        
-//        mainPage
-//            .tapOnInfoButton()
-//        appInfoPage
-//            .openAbout()
-//        radioInfoPage
-//            .checkNameOfApp()
-//            .tapOnOkay()
-//        appInfoPage
-//            .checkAuthors()
-    }
-//    
-//    /*
-//     Проверка корректного закрытия текущего экрана
-//     */
-//    func testCloseAboutAppPage() {
-//        mainPage
-//            .tapOnInfoButton()
-//        
-//        AppInfoPage.closeButton.tapElement()
-//        
-//        mainPage
-//            .checkNavbarTitleOnMainPage()
-//    }
 
 }

@@ -38,13 +38,13 @@ extension XCUIElement {
         }
     }
 
-    func clearText() -> Self {
+    func clearText() {
         guard let stringValue = value as? String else {
-            return self
+            return
         }
         // workaround for apple bug
         guard placeholderValue != stringValue else {
-            return self
+            return
         }
 
         var deleteString = [String]()
@@ -52,8 +52,7 @@ extension XCUIElement {
             deleteString.append(XCUIKeyboardKey.delete.rawValue)
         }
         typeText(deleteString.joined())
-
-        return self
+        
     }
 
     func tapElement(
@@ -163,22 +162,5 @@ extension XCUIElement {
 
         left.press(forDuration: 1, thenDragTo: right)
     }
-
-    enum SwipeMiniPlayerDirection {
-        case left
-        case right
-    }
-
-    func swipeMiniPlayer(direction: SwipeMiniPlayerDirection) {
-        let app = XCUIApplication()
-        let left = app.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.88))
-        let right = app.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.88))
-
-        switch direction {
-        case .left:
-            right.press(forDuration: 0, thenDragTo: left)
-        case .right:
-            left.press(forDuration: 0, thenDragTo: right)
-        }
-    }
+    
 }
