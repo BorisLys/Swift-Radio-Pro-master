@@ -31,30 +31,30 @@ class CommonPage {
     
     // MARK: -  Actions
     
-    @discardableResult
-    func tapOnBackButton() -> Self {
-        backButton.tapElement()
-        return self
-    }
+//    @discardableResult
+//    func tapOnBackButton() -> Self {
+//        backButton.tapElement()
+//        return self
+//    }
     
     // MARK: -  Verification
     
-    @discardableResult
-    func checkLabelInBackButton(text: String) -> Self {
-        backButton.checkLabelEqualToString(text)
-        return self
-    }
+//    @discardableResult
+//    func checkLabelInBackButton(text: String) -> Self {
+//        backButton.checkLabelEqualToString(text)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkNavbarTitleOnMainPage() -> Self {
+//        nameOfMainPageNavbarTitle.checkLabelEqualToString(nameOfMainPageNavbarText)
+//        return self
+//    }
     
-    @discardableResult
-    func checkNavbarTitleOnMainPage() -> Self {
-        nameOfMainPageNavbarTitle.checkLabelEqualToString(nameOfMainPageNavbarText)
-        return self
-    }
-    
-    @discardableResult
-    func checkMainDomain(domain: String) -> Self {
-        XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
-        return self
-    }
+//    @discardableResult
+//    func checkMainDomain(domain: String) -> Self {
+//        XCTAssertTrue((URL.firstMatch.value as! String).contains(domain), "\(domain) not found")
+//        return self
+//    }
     
 }

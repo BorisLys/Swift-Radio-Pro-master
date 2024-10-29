@@ -9,16 +9,12 @@
 import XCTest
 
 class CommonTest: XCTestCase {
-    
-    let app = XCUIApplication()
-    let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-    
+        
     override func setUp() {
         super.setUp()
         
         continueAfterFailure = false
         XCUIApplication().launch()
-        
     }
     
     override class func tearDown() {

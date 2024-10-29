@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class StationDetailsPage: CommonPage {
+struct StationDetailsPage: BaseScreen, NavigationBar {
     
     // MARK: - UI elements and variables
     
@@ -17,122 +17,79 @@ final class StationDetailsPage: CommonPage {
         case stopped = "Station Stopped"
         case error = "Error Playing"
     }
-        
-    private lazy var albumArtImage: XCUIElement = {
-        app.images["albumArtImage"]
-    }()
     
-    private lazy var stationDeskLabel: XCUIElement = {
-        app.staticTexts["stationDeskLabel"]
-    }()
-    
-    private lazy var playButton: XCUIElement = {
-        app.buttons["playButton"]
-    }()
-    
-    private lazy var stopButton: XCUIElement = {
-        app.buttons["stopButton"]
-    }()
-    
-    private lazy var previousButton: XCUIElement = {
-        app.buttons["previousButton"]
-    }()
-    
-    private lazy var nextButton: XCUIElement = {
-        app.buttons["nextButton"]
-    }()
-    
-    private lazy var volumeSlider: XCUIElement = {
-        app.sliders["volumeSlider"]
-    }()
-    
-    private lazy var volumeMinImage: XCUIElement = {
-        app.images["volumeMinImage"]
-    }()
-    
-    private lazy var volumeMaxImage: XCUIElement = {
-        app.images["volumeMaxImage"]
-    }()
-    private lazy var songLabel: XCUIElement = {
-        app.staticTexts["songLabel"]
-    }()
-    
-    private lazy var artistLabel: XCUIElement = {
-        app.staticTexts["artistLabel"]
-    }()
-    
-    private lazy var companyButton: XCUIElement = {
-        app.buttons["companyButton"]
-    }()
-    
-    private lazy var shareButton: XCUIElement = {
-        app.buttons["shareButton"]
-    }()
-    
-    private lazy var infoButton: XCUIElement = {
-        app.buttons["infoButton"]
-    }()
-    
-    private lazy var airPlayView: XCUIElement = {
-        app.otherElements["airPlayView"]
-    }()
+    static let albumArtImage = app.images["albumArtImage"]
+    static let stationDeskLabel = app.staticTexts["stationDeskLabel"]
+    static let playButton = app.buttons["playButton"]
+    static let stopButton = app.buttons["stopButton"]
+    static let previousButton = app.buttons["previousButton"]
+    static let nextButton = app.buttons["nextButton"]
+    static let volumeSlider = app.sliders["volumeSlider"]
+    static let volumeMinImage = app.images["volumeMinImage"]
+    static let volumeMaxImage = app.images["volumeMaxImage"]
+    static let songLabel = app.staticTexts["songLabel"]
+    static let artistLabel = app.staticTexts["artistLabel"]
+    static let companyButton = app.buttons["companyButton"]
+    static let shareButton = app.buttons["shareButton"]
+    static let infoButton = app.buttons["infoButton"]
+    static let airPlayView = app.otherElements["airPlayView"]
     
     // MARK: -  Actions
         
-    @discardableResult
-    func tapOnPlay() -> Self {
-        playButton.tapElement()
-        return self
-    }
-    
-    @discardableResult
-    func tapOnStop() -> Self {
-//      баг с стороны программы, если быстро нажать на стоп трек не стопорится
-        stopButton.waitForExistence(timeout: 2)
-        stopButton.tapElement()
-        return self
-    }
-    
-    @discardableResult
-    func tapOnInfoButton() -> Self {
-        infoButton.tapElement()
-        return self
-    }
-    
-    @discardableResult
-    func tapOnCompanyButton() -> Self {
-        companyButton.tapElement()
-        return self
-    }
-    
-    // MARK: -  Verification
-    
-    @discardableResult
-    func checkSongPauseLabel() -> Self {
-        songLabel.checkLabelContainsString(PlayingStatus.pause.rawValue)
-        return self
-    }
-    
-    @discardableResult
-    func checkSongStoppedLabel() -> Self {
-        songLabel.checkLabelContainsString(PlayingStatus.stopped.rawValue)
-        return self
-    }
-    
-    @discardableResult
-    func checkSongErrorLabel() -> Self {
-        songLabel.checkLabelContainsString(PlayingStatus.error.rawValue)
-        return self
-    }
-    
-    @discardableResult
-    func checkNavbarTitle(stationName: String) -> Self {
-        let navbarTitle: XCUIElement = {
-            app.navigationBars[stationName].otherElements[stationName]
-        }()
-        
-        navbarTitle.checkLabelEqualToString(stationName)
-        return self
-    }
+//    @discardableResult
+//    func tapOnPlay() -> Self {
+//        playButton.tapElement()
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func tapOnStop() -> Self {
+////      баг с стороны программы, если быстро нажать на стоп трек не стопорится
+//        stopButton.waitForExistence(timeout: 2)
+//        stopButton.tapElement()
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func tapOnInfoButton() -> Self {
+//        infoButton.tapElement()
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func tapOnCompanyButton() -> Self {
+//        companyButton.tapElement()
+//        return self
+//    }
+//    
+//    // MARK: -  Verification
+//    
+//    @discardableResult
+//    func checkSongPauseLabel() -> Self {
+//        songLabel.checkLabelContainsString(PlayingStatus.pause.rawValue)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkSongStoppedLabel() -> Self {
+//        songLabel.checkLabelContainsString(PlayingStatus.stopped.rawValue)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkSongErrorLabel() -> Self {
+//        songLabel.checkLabelContainsString(PlayingStatus.error.rawValue)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkNavbarTitle(stationName: String) -> Self {
+//        let navbarTitle: XCUIElement = {
+//            app.navigationBars[stationName].otherElements[stationName]
+//        }()
+//        
+//        navbarTitle.checkLabelEqualToString(stationName)
+//        return self
+//    }
     
 }

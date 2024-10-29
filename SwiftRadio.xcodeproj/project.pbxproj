@@ -58,6 +58,13 @@
 		94D260981B45E8B800DE671C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D260971B45E8B800DE671C /* Track.swift */; };
 		94D30EA71AD07A880024FE96 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D30EA61AD07A880024FE96 /* StationTableViewCell.swift */; };
 		94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */; };
+		B05F1B1B2CC79582007D10D5 /* BaseScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */; };
+		B05F1B1E2CC795E7007D10D5 /* BundleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1D2CC795E7007D10D5 /* BundleId.swift */; };
+		B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */; };
+		B05F1B222CC798D0007D10D5 /* XCUIElement+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */; };
+		B05F1B242CC79908007D10D5 /* XCUIElement+Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */; };
+		B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */; };
+		B05F1B292CC79F26007D10D5 /* SafariPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B282CC79F26007D10D5 /* SafariPage.swift */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
@@ -68,11 +75,9 @@
 		DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */; };
 		DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */; };
 		DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */; };
-		DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */; };
 		DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */; };
 		DAEBB2052517491B0065ECF0 /* AppInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */; };
 		DAEBB2082517521D0065ECF0 /* RadioInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2072517521D0065ECF0 /* RadioInfoTest.swift */; };
-		DAEBB20A25175DC50065ECF0 /* RadioInfoTestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB20925175DC50065ECF0 /* RadioInfoTestExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +149,13 @@
 		94D260971B45E8B800DE671C /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		94D30EA61AD07A880024FE96 /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
 		94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DropShadow.swift"; sourceTree = "<group>"; };
+		B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenProtocol.swift; sourceTree = "<group>"; };
+		B05F1B1D2CC795E7007D10D5 /* BundleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleId.swift; sourceTree = "<group>"; };
+		B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Allure.swift"; sourceTree = "<group>"; };
+		B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Actions.swift"; sourceTree = "<group>"; };
+		B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Asserts.swift"; sourceTree = "<group>"; };
+		B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Waiting.swift"; sourceTree = "<group>"; };
+		B05F1B282CC79F26007D10D5 /* SafariPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariPage.swift; sourceTree = "<group>"; };
 		CAA8FDB42000614600050F77 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -154,11 +166,9 @@
 		DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPage.swift; sourceTree = "<group>"; };
 		DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
-		DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtensions.swift; sourceTree = "<group>"; };
 		DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoTest.swift; sourceTree = "<group>"; };
 		DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTest.swift; sourceTree = "<group>"; };
 		DAEBB2072517521D0065ECF0 /* RadioInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoTest.swift; sourceTree = "<group>"; };
-		DAEBB20925175DC50065ECF0 /* RadioInfoTestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoTestExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +192,7 @@
 		2C5545BB1C1124DE00728469 /* SwiftRadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				B05F1B1C2CC795CD007D10D5 /* Data */,
 				2C5545BE1C1124DE00728469 /* Info.plist */,
 				DAEBB1E225161E240065ECF0 /* Page */,
 				DAEBB1FF25165D750065ECF0 /* Extensions */,
@@ -342,6 +353,22 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		B05F1B1C2CC795CD007D10D5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B05F1B1D2CC795E7007D10D5 /* BundleId.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B05F1B272CC79F0D007D10D5 /* AnotherApp */ = {
+			isa = PBXGroup;
+			children = (
+				B05F1B282CC79F26007D10D5 /* SafariPage.swift */,
+			);
+			path = AnotherApp;
+			sourceTree = "<group>";
+		};
 		CAA7C15A1FD77F3A003CABDF /* FRadioPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,12 +382,14 @@
 		DAEBB1E225161E240065ECF0 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				B05F1B272CC79F0D007D10D5 /* AnotherApp */,
 				DAEBB1E425161E5B0065ECF0 /* MainPage.swift */,
 				DAEBB1F1251627690065ECF0 /* AppInfoPage.swift */,
 				DAEBB1EF251623960065ECF0 /* RadioInfoPage.swift */,
 				DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */,
 				DAEBB1E925161F7F0065ECF0 /* CommonPage.swift */,
 				DAEBB1ED251622BF0065ECF0 /* StationInfoPage.swift */,
+				B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -380,8 +409,10 @@
 		DAEBB1FF25165D750065ECF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DAEBB20025165D900065ECF0 /* XCUIElementExtensions.swift */,
-				DAEBB20925175DC50065ECF0 /* RadioInfoTestExtension.swift */,
+				B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */,
+				B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */,
+				B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */,
+				B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,16 +531,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAEBB20125165D900065ECF0 /* XCUIElementExtensions.swift in Sources */,
 				DAEBB2052517491B0065ECF0 /* AppInfoTest.swift in Sources */,
 				DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */,
-				DAEBB20A25175DC50065ECF0 /* RadioInfoTestExtension.swift in Sources */,
+				B05F1B292CC79F26007D10D5 /* SafariPage.swift in Sources */,
 				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
 				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
+				B05F1B1E2CC795E7007D10D5 /* BundleId.swift in Sources */,
+				B05F1B242CC79908007D10D5 /* XCUIElement+Asserts.swift in Sources */,
+				B05F1B222CC798D0007D10D5 /* XCUIElement+Actions.swift in Sources */,
 				DAEBB2082517521D0065ECF0 /* RadioInfoTest.swift in Sources */,
 				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
+				B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */,
 				DAEBB1EA25161F7F0065ECF0 /* CommonPage.swift in Sources */,
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
+				B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */,
+				B05F1B1B2CC79582007D10D5 /* BaseScreenProtocol.swift in Sources */,
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
 				DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */,

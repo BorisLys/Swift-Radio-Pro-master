@@ -8,64 +8,50 @@
 
 import XCTest
 
-final class StationInfoPage: CommonPage {
+struct StationInfoPage: BaseScreen {
+    
+    static let stationImage = app.images["stationImage"]
+    static let stationNameLabel = app.staticTexts["stationNameLabel"]
+    static let okayButton = app.buttons["okayButton"]
+    static let stationDeskLabel = app.staticTexts["stationDeskLabel"]
+    static let stationTextView = app.textViews["stationTextView"]
     
     // MARK: - UI elements and variables
-    
-    private lazy var stationImage: XCUIElement = {
-        app.images["stationImage"]
-    }()
-    
-    private lazy var okayButton: XCUIElement = {
-        app.buttons["okayButton"]
-    }()
-    
-    private lazy var stationNameLabel: XCUIElement = {
-        app.staticTexts["stationNameLabel"]
-    }()
-    
-    private lazy var stationDeskLabel: XCUIElement = {
-        app.staticTexts["stationDeskLabel"]
-    }()
-    
-    private lazy var stationTextView: XCUIElement = {
-        app.textViews["stationTextView"]
-    }()
     
     private let stationDescDescription = "The Music Starts Here"
     private let textViewDescription = "All your favorite country hits and artists, from Johnny Cash to Taylor Swift, on 1.FM's Absolute Country, playing non-stop crooners and banjos, dance-tunes and fiddles, ballads and harmonicas. Absolute Country focuses on 5th, 6th and 7th generation Country (from the 90s on) but often delves into classic, older tunes as well."
     
     // MARK: -  Actions
-    
-    @discardableResult
-    func tapOnOkay() -> Self {
-        okayButton.tapElement()
-        return self
-    }
-    
-    // MARK: -  Verification
-    
-    @discardableResult
-    func checkTextInNavbarButton(stationName: String) -> Self {
-        return self
-    }
-    
-    @discardableResult
-    func checkStationImage() -> Self {
-        stationImage.checkExistence(true)
-        return self
-    }
-    
-    @discardableResult
-    func checkStationNameLabel(stationName: String) -> Self {
-        stationNameLabel.checkLabelEqualToString(stationName)
-        return self
-    }
-    
-    @discardableResult
-    func checkStationDeskLabel() -> Self {
-        stationDeskLabel.checkLabelEqualToString(stationDescDescription)
-        return self
-    }
+//    
+//    @discardableResult
+//    func tapOnOkay() -> Self {
+//        okayButton.tapElement()
+//        return self
+//    }
+//    
+//    // MARK: -  Verification
+//    
+//    @discardableResult
+//    func checkTextInNavbarButton(stationName: String) -> Self {
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkStationImage() -> Self {
+//        stationImage.checkExistence(true)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkStationNameLabel(stationName: String) -> Self {
+//        stationNameLabel.checkLabelEqualToString(stationName)
+//        return self
+//    }
+//    
+//    @discardableResult
+//    func checkStationDeskLabel() -> Self {
+//        stationDeskLabel.checkLabelEqualToString(stationDescDescription)
+//        return self
+//    }
     
 }
