@@ -25,7 +25,7 @@ jobs:
 
       - name: Install xcresults
         run: |
-          curl -L -s wget https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+          wget https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
           chmod +x xcresults
           export PATH=$PATH:$(pwd)/xcresults/bin
 
