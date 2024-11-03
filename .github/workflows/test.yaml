@@ -15,7 +15,7 @@ on:
         type: boolean
 
 jobs:
-  build:
+  test:
     name: Test
     runs-on: [macos-15]
 
@@ -23,54 +23,73 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install xcresults
+        run: |
+          curl -L -s wget https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+          chmod +x xcresults
+          export PATH=$PATH:$(pwd)/xcresults/bin
+
+      - name: Install Allure
+        run: brew install allure
+
       - name: Run Ui Tests
         run: |
           xcodebuild test \
           -scheme SwiftRadioUITests \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
           -resultBundlePath ./TestResults.xcresult
+        continue-on-error: true
 
-#jobs:
-#  build:
-#    name: Test
-#    runs-on: self-hosted
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v3
-#
-#      - name: Run Ui Tests
-#        run: |
-#          xcodebuild test \
-#          -scheme SwiftRadioUITests \
-#          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-#          -resultBundlePath ./TestResults.xcresult | xcpretty
-#
-#          mkdir allure-results
-#          xcresults export TestResults.xcresult -o allure-results
-#          mkdir allure-report
-#          allure generate allure-results --report-dir allure-report
-#
-#      - name: Load test report history
-#        uses: actions/checkout@v3
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-#
-#      - name: Build test report
-#        uses: simple-elf/allure-report-action@v1.7
-#        if: always()
-#        with:
-#          gh_pages: gh-pages
-#          allure_history: allure-history
-#          allure_results: allure-results
-#
-#      - name: Publish test report
-#        uses: peaceiris/actions-gh-pages@v3
-#        if: always()
-#        with:
-#          github_token: ${{ secrets.TOKEN }}
-#          publish_branch: gh-pages
-#          publish_dir: allure-history
+      - name: Generate Allure files
+        run: |
+          mkdir allure-results
+          xcresults export TestResults.xcresult -o allure-results
+          mkdir allure-report
+          allure generate allure-results --report-dir allure-report
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-files
+          path: |
+            allure-results/
+            allure-report/
+          retention-days: 7
+
+  report:
+    runs-on: [ubuntu-latest]
+    name: Report to Allure
+    needs: test
+    steps:
+      - name: Install Allure
+        run: brew install allure
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-files
+          path: ./
+
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: allure-results
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
