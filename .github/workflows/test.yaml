@@ -23,16 +23,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Xcode
-        run: |
-          sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-  
       - name: Run Ui Tests
         run: |
           xcodebuild test \
           -scheme SwiftRadioUITests \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-          -allowProvisioningUpdates
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' 
 
 #jobs:
 #  build:
