@@ -21,11 +21,40 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Run Ui Tests
         run: |
           xcodebuild test \
-                    -scheme SwiftRadioUITests \
-                    -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-                    -allowProvisioningUpdates
+          -scheme SwiftRadioUITests \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+          -resultBundlePath ./SwiftRadioUITests.xcresult
+          
+          mkdir allure-results
+          xcresults export SwiftRadioUITests.xcresult -o allure-results
+          mkdir allure-report
+          allure generate allure-results --report-dir allure-report
+
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: allure-results
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
