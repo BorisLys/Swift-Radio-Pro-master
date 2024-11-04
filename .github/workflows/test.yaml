@@ -92,13 +92,8 @@ jobs:
 #    needs: test
     steps:
 
-#      - name: Install Homebrew
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y build-essential curl file git
-#          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-#          brew doctor
+      - name: Add path toHomebrew
+        run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
       - name: Install Allure
         run: brew install allure
