@@ -70,9 +70,7 @@ jobs:
       - name: Run Ui Tests
         run: |
           xcodebuild test-without-building \
-          -scheme SwiftRadioUITests \
-          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
-          -xctestrun SwiftRadioUITests_iphonesimulator18.0-arm64.xctestrun \
+          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_iphonesimulator18.0-arm64.xctestrun \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
           -resultBundlePath ./TestResults.xcresult \
           CODE_SIGNING_ALLOWED='NO'
