@@ -83,12 +83,20 @@ jobs:
           mkdir allure-report
           allure generate allure-results --report-dir allure-report
 
+#      - name: Upload artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: allure-report
+#          path: |
+#            allure-report/
+#          retention-days: 1
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
+          name: allure-results
           path: |
-            allure-report/
+            allure-results/
           retention-days: 1
 
   report:
@@ -99,29 +107,35 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: allure-report
-          path: allure-report
+          name: allure-results
+          path: allure-results
+
+#      - name: Download artifact
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: allure-report
+#          path: allure-report
 
       - name: Display structure of downloaded files
         run: |
           ls -R
           pwd
 
-#      - name: Load test report history
-#        uses: actions/checkout@v3
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-#
-#      - name: Build test report
-#        uses: simple-elf/allure-report-action@v1.7
-#        if: always()
-#        with:
-#          gh_pages: gh-pages
-#          allure_history: allure-history
-#          allure_results: allure-results
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: ./allure-results
 
       - name: Publish test report
         uses: peaceiris/actions-gh-pages@v3
@@ -129,4 +143,12 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./allure-report
+          publish_dir: allure-history
+
+#      - name: Publish test report
+#        uses: peaceiris/actions-gh-pages@v3
+#        if: always()
+#        with:
+#          github_token: ${{ secrets.TOKEN }}
+#          publish_branch: gh-pages
+#          publish_dir: ./allure-report
