@@ -64,6 +64,9 @@ jobs:
           curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
           chmod +x xcresults
 
+      - name: Install Allure
+        run: brew install allure
+
       - name: Run Ui Tests
         run: |
           xcodebuild test-without-building \
@@ -77,48 +80,46 @@ jobs:
         run: |
           mkdir allure-results
           ./xcresults export TestResults.xcresult -o allure-results
+          mkdir allure-report
+          allure generate allure-results --report-dir allure-report
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
+          name: allure-report
           path: |
-            allure-results/
-          retention-days: 7
+            allure-report/
+          retention-days: 1
 
   report:
     runs-on: [ubuntu-latest]
     name: Report to Allure
     needs: test
     steps:
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-
-      - name: Install Allure
-        run: brew install allure
-
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: allure-results
-          path: ./
+          name: allure-report
 
-      - name: Load test report history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+      - name: Display structure of downloaded files
+        run: ls -R
 
-      - name: Build test report
-        uses: simple-elf/allure-report-action@v1.7
-        if: always()
-        with:
-          gh_pages: gh-pages
-          allure_history: allure-history
-          allure_results: allure-results
+
+#      - name: Load test report history
+#        uses: actions/checkout@v3
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+#
+#      - name: Build test report
+#        uses: simple-elf/allure-report-action@v1.7
+#        if: always()
+#        with:
+#          gh_pages: gh-pages
+#          allure_history: allure-history
+#          allure_results: allure-results
 
       - name: Publish test report
         uses: peaceiris/actions-gh-pages@v3
@@ -126,4 +127,4 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
