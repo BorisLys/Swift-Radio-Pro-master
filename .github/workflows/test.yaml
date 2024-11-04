@@ -15,96 +15,95 @@ env:
   TEST_RESULTS: './TestResults.xcresult'
 
 jobs:
-#  build:
-#    name: build
-#    runs-on: [macos-15]
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: build project
-#        id: build
-#        run: |
-#          set -o pipefail
-#          xcodebuild build-for-testing \
-#          -project ${{ env.PROJECT }} \
-#          -scheme ${{ env.SCHEME }} \
-#          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
-#          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
-#          CODE_SIGNING_ALLOWED='NO'
-#
-#          mkdir TestData
-#          patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
-#          for pattern in "${patterns[@]}"; do find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; done
-#          echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
-#
-#      - uses: actions/upload-artifact@v4
-#        with:
-#          path: ${{ steps.build.outputs.artifacts_path }}
-#          name: TestData
-#          retention-days: 30
-#
-#  test:
-#    name: Test
-#    runs-on: [macos-15]
-#    needs: build
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - uses: actions/download-artifact@v4
-#        with:
-#          name: TestData
-#          path: ${{ env.DERIVED_DATA_PATH }}
-#
-#      - name: Download Allure Parser of XCResults
-#        run: |
-#          curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
-#          chmod +x xcresults
-#
-#      - name: Install Allure
-#        run: brew install allure
-#
-#      - name: Run Ui Tests
-#        run: |
-#          xcodebuild test-without-building \
-#          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_iphonesimulator18.0-arm64.xctestrun \
-#          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
-#          -resultBundlePath ./TestResults.xcresult \
-#          CODE_SIGNING_ALLOWED='NO'
-#        continue-on-error: true
-#
-#      - name: Generate Allure files
-#        run: |
-#          mkdir allure-results
-#          ./xcresults export TestResults.xcresult -o allure-results
-#          mkdir allure-report
-#          allure generate allure-results --report-dir allure-report
-#
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: allure-report
-#          path: |
-#            allure-report/
-#          retention-days: 1
+  build:
+    name: build
+    runs-on: [macos-15]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: build project
+        id: build
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+          -project ${{ env.PROJECT }} \
+          -scheme ${{ env.SCHEME }} \
+          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
+          CODE_SIGNING_ALLOWED='NO'
+
+          mkdir TestData
+          patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
+          for pattern in "${patterns[@]}"; do find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; done
+          echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ${{ steps.build.outputs.artifacts_path }}
+          name: TestData
+          retention-days: 30
+
+  test:
+    name: Test
+    runs-on: [macos-15]
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: TestData
+          path: ${{ env.DERIVED_DATA_PATH }}
+
+      - name: Download Allure Parser of XCResults
+        run: |
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
+          chmod +x xcresults
+
+      - name: Install Allure
+        run: brew install allure
+
+      - name: Run Ui Tests
+        run: |
+          xcodebuild test-without-building \
+          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_iphonesimulator18.0-arm64.xctestrun \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
+          -resultBundlePath ./TestResults.xcresult \
+          CODE_SIGNING_ALLOWED='NO'
+        continue-on-error: true
+
+      - name: Generate Allure files
+        run: |
+          mkdir allure-results
+          ./xcresults export TestResults.xcresult -o allure-results
+          mkdir allure-report
+          allure generate allure-results --report-dir allure-report
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: |
+            allure-report/
+          retention-days: 1
 
   report:
     runs-on: [ubuntu-latest]
     name: Report to Allure
-#    needs: test
+    needs: test
     steps:
-#      - name: Download artifact
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: allure-report
-#          path: allure-report
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
 
       - name: Display structure of downloaded files
         run: |
-          mkdir allure-report
           ls -R
           pwd
 
