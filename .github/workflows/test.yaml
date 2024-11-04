@@ -89,7 +89,7 @@ jobs:
   report:
     runs-on: [ubuntu-latest]
     name: Report to Allure
-    needs: test
+#    needs: test
     steps:
       - name: Install Homebrew
         run: |
