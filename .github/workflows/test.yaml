@@ -91,9 +91,9 @@ jobs:
     name: Report to Allure
 #    needs: test
     steps:
-
-      - name: Add path toHomebrew
-        run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
       - name: Install Allure
         run: brew install allure
