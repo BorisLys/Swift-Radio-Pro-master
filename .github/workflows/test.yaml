@@ -7,12 +7,6 @@ on:
   pull_request:
     branches:
       - master
-  workflow_dispatch:
-    inputs:
-      manual:
-        description: 'Run?'
-        required: false
-        type: boolean
 
 jobs:
   test:
@@ -27,7 +21,7 @@ jobs:
         run: |
           wget https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
           chmod +x xcresults
-          export PATH=$PATH:$(pwd)/xcresults/bin
+          export PATH=$PATH:$(pwd)
 
       - name: Install Allure
         run: brew install allure
@@ -37,7 +31,8 @@ jobs:
           xcodebuild test \
           -scheme SwiftRadioUITests \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-          -resultBundlePath ./TestResults.xcresult
+          -resultBundlePath ./TestResults.xcresult \
+          CODE_SIGNING_ALLOWED='NO'
         continue-on-error: true
 
       - name: Generate Allure files
