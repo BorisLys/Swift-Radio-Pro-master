@@ -8,7 +8,43 @@ on:
     branches:
       - master
 
+env:
+  PROJECT: 'SwiftRadio.xcodeproj'
+  SCHEME: 'SwiftRadioUITests'
+  DERIVED_DATA_PATH: 'DerivedData'
+  TEST_RESULTS: './TestResults.xcresult'
+
 jobs:
+  build:
+    name: build
+    runs-on: [macos-15]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: build project
+        id: build
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+          -project ${{ env.PROJECT- }} \
+          -scheme ${{ env.SCHEME }} \
+          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
+          CODE_SIGNING_ALLOWED='NO'
+          
+          mkdir TestData
+          patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
+          for pattern in "${patterns[@]}"; do find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; done
+          echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ${{ steps.build.outputs.artifacts_path }}
+          name: TestData
+          retention-days: 30
+
   test:
     name: Test
     runs-on: [macos-15]
@@ -17,20 +53,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install xcresults
+      - uses: actions/download-artifact@v4
+        with:
+          name: TestData
+          path: ${{ env.DERIVED_DATA_PATH }}
+
+      - name: Download Allure Parser of XCResults
         run: |
-          wget https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
-          chmod +x xcresults
-          export PATH=$PATH:$(pwd)
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
+          chmod +x xcresults 
 
       - name: Install Allure
         run: brew install allure
 
       - name: Run Ui Tests
         run: |
-          xcodebuild test \
+          xcodebuild test-without-building \
           -scheme SwiftRadioUITests \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
+          -xctestrun SwiftRadioUITests_iphonesimulator18.0-arm64.xctestrun \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
           -resultBundlePath ./TestResults.xcresult \
           CODE_SIGNING_ALLOWED='NO'
         continue-on-error: true
@@ -38,7 +80,7 @@ jobs:
       - name: Generate Allure files
         run: |
           mkdir allure-results
-          xcresults export TestResults.xcresult -o allure-results
+          ./xcresults export TestResults.xcresult -o allure-results
           mkdir allure-report
           allure generate allure-results --report-dir allure-report
 
