@@ -65,6 +65,8 @@
 		B05F1B242CC79908007D10D5 /* XCUIElement+Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */; };
 		B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */; };
 		B05F1B292CC79F26007D10D5 /* SafariPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B282CC79F26007D10D5 /* SafariPage.swift */; };
+		B0CEAC2F2CDE76810090D6A6 /* AccessibilityIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */; };
+		B0CEAC302CDE7E770090D6A6 /* AccessibilityIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
@@ -163,6 +165,7 @@
 		B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Waiting.swift"; sourceTree = "<group>"; };
 		B05F1B282CC79F26007D10D5 /* SafariPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariPage.swift; sourceTree = "<group>"; };
 		B0CEAC232CD7DF810090D6A6 /* SwiftRadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRadioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIDs.swift; sourceTree = "<group>"; };
 		CAA8FDB42000614600050F77 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -300,6 +303,7 @@
 				9409E1191ABF6FEA00312E2B /* Supporting Files */,
 				94D260941B45E0BA00DE671C /* UI Helpers */,
 				5F22B9DE1F72A8D800CB5911 /* Libraries */,
+				B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */,
 			);
 			path = SwiftRadio;
 			sourceTree = "<group>";
@@ -599,6 +603,7 @@
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
 				DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */,
+				B0CEAC302CDE7E770090D6A6 /* AccessibilityIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +652,7 @@
 				5F22BA541F72AD5A00CB5911 /* SpringView.swift in Sources */,
 				94D260961B45E3FA00DE671C /* AnimationFrames.swift in Sources */,
 				5F22BA461F72AD5A00CB5911 /* AsyncButton.swift in Sources */,
+				B0CEAC2F2CDE76810090D6A6 /* AccessibilityIDs.swift in Sources */,
 				942A3F371AE43DF80011396E /* StationsViewController.swift in Sources */,
 				81AD229B21646DEA002ADFDD /* FRadioPlayer.swift in Sources */,
 				5F22BA501F72AD5A00CB5911 /* Spring.swift in Sources */,

@@ -26,6 +26,13 @@ class InfoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        stationImageView.accessibilityIdentifier = AccessibilityIDs.infoDetailView.stationImageView
+        stationNameLabel.accessibilityIdentifier = AccessibilityIDs.infoDetailView.stationNameLabel
+        stationDescLabel.accessibilityIdentifier = AccessibilityIDs.infoDetailView.stationDescLabel
+        stationLongDescTextView.accessibilityIdentifier = AccessibilityIDs.infoDetailView.stationLongDescTextView
+        okayButton.accessibilityIdentifier = AccessibilityIDs.infoDetailView.okayButton
+        
+        
         setupStationText()
         setupStationLogo()
     }
