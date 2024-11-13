@@ -11,13 +11,17 @@ import XCTest
 class CommonTest: XCTestCase {
         
     override func setUp() {
-        super.setUp()
-        
-        continueAfterFailure = false
-        XCUIApplication().launch()
+        before("Иницилизация приложения") {
+            super.setUp()
+            
+            continueAfterFailure = false
+            XCUIApplication().launch()
+        }
     }
     
-    override class func tearDown() {
-        super.tearDown()
+    override func tearDown() {
+        after("Очистка состояния") {
+            super.tearDown()
+        }
     }
 }

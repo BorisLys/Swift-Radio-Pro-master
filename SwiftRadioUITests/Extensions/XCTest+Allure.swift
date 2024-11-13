@@ -40,5 +40,21 @@ public extension XCTest {
         }
         return self
     }
+    
+    @discardableResult
+    func before(_ name: String, step: () -> Void) -> XCTest {
+        XCTContext.runActivity(named: "befores: " + name) { _ in
+            step()
+        }
+        return self
+    }
+    
+    @discardableResult
+    func after(_ name: String, step: () -> Void) -> XCTest {
+        XCTContext.runActivity(named: "afters: " + name) { _ in
+            step()
+        }
+        return self
+    }
 }
 
