@@ -61,7 +61,7 @@ extension XCUIElement {
         line: UInt = #line
     ) {
         wait(
-            for: .exists,
+            for: .hittable,
             time: timeout,
             file: file,
             line: line
