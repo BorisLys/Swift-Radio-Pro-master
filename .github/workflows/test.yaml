@@ -38,13 +38,14 @@ jobs:
       - name: Cache Derived Data
         uses: actions/cache@v4
         with:
-          path: ${{ env.DERIVED_DATA_PATH }}
+          path: TestData/DerivedData
           key: ${{ runner.os }}-deriveddata-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-deriveddata-
 
       - name: Build Project
         id: build
+        if: steps.cache-step.outputs.cache-hit != 'true'
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
@@ -91,10 +92,17 @@ jobs:
 
       - name: Run Ui Tests
         run: |
-          xcodebuild test-without-building \
-          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
-          -resultBundlePath ./TestResults.xcresult
+          if [ -z "${{ github.event.inputs.test_plan_type }}" ]; then
+            xcodebuild test-without-building \
+            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
+            -resultBundlePath ./TestResults.xcresult
+          else
+            xcodebuild test-without-building \
+            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
+            -resultBundlePath ./TestResults.xcresult
+          fi
         continue-on-error: true
 
       - name: Generate Allure files
