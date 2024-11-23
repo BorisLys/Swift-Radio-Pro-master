@@ -9,12 +9,14 @@
 import XCTest
 
 class CommonTest: XCTestCase {
+    
+    let app = XCUIApplication()
         
     override func setUp() {
         super.setUp()
         
         continueAfterFailure = false
-        XCUIApplication().launch()
+        app.launch()
     }
     
     override func tearDown() {

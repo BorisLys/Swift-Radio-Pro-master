@@ -168,6 +168,8 @@
 		B0CEAC232CD7DF810090D6A6 /* SwiftRadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRadioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIDs.swift; sourceTree = "<group>"; };
 		B0E8C5632CE9D2F20044D220 /* TestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObserver.swift; sourceTree = "<group>"; };
+		B0E8C5692CF1BCE30044D220 /* Smoke.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Smoke.xctestplan; sourceTree = "<group>"; };
+		B0E8C56A2CF1C66B0044D220 /* Regression.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Regression.xctestplan; sourceTree = "<group>"; };
 		CAA8FDB42000614600050F77 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		2C5545BB1C1124DE00728469 /* SwiftRadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				B0E8C5682CF1BCC50044D220 /* Test Plans */,
 				B05F1B1C2CC795CD007D10D5 /* Data */,
 				2C5545BE1C1124DE00728469 /* Info.plist */,
 				DAEBB1E225161E240065ECF0 /* Page */,
@@ -392,6 +395,15 @@
 				B05F1B282CC79F26007D10D5 /* SafariPage.swift */,
 			);
 			path = AnotherApp;
+			sourceTree = "<group>";
+		};
+		B0E8C5682CF1BCC50044D220 /* Test Plans */ = {
+			isa = PBXGroup;
+			children = (
+				B0E8C5692CF1BCE30044D220 /* Smoke.xctestplan */,
+				B0E8C56A2CF1C66B0044D220 /* Regression.xctestplan */,
+			);
+			path = "Test Plans";
 			sourceTree = "<group>";
 		};
 		CAA7C15A1FD77F3A003CABDF /* FRadioPlayer */ = {

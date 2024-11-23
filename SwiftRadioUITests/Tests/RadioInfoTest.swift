@@ -18,6 +18,7 @@ final class RadioInfoTest: CommonTest {
         let textViewText = "FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.\n+ Background Audio performance\n+iTunes API integration to automatically download album art\n+ Loads and parses Icecast metadata (i.e. artist & track names)\n+ Ability to update stations from server without resubmitting to the app store.\n"
         
         step("Открыть первую станцию") {
+            let _ = app.wait(for: .runningForeground, timeout: 5)
             MainPage.getStation(index: 0).tapElement()
         }
         step("Открыть страницу компании") {

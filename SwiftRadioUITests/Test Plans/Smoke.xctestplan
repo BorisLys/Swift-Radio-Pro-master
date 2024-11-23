@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "2A7A42AE-1562-459C-88B2-DF06A476F5AC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "AppInfoTest",
+        "AppInfoTest\/testOpenWebsiteFromAppInfo()",
+        "CommonTest",
+        "RadioInfoTest",
+        "RadioInfoTest\/testClosePage()",
+        "RadioInfoTest\/testOpemEmailMeIfWeDontHaveEmail()",
+        "RadioInfoTest\/testOpenWebLink()",
+        "StationInfoTest",
+        "StationInfoTest\/testOpenStationDetailsByTapOnNowPlayingButton()"
+      ],
+      "target" : {
+        "containerPath" : "container:SwiftRadio.xcodeproj",
+        "identifier" : "2C5545B91C1124DE00728469",
+        "name" : "SwiftRadioUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -26,7 +26,7 @@ extension XCUIElement {
     }
 
     func wait(
-        for event: ElementEvent = .exists,
+        for event: ElementEvent = .hittable,
         time: TimeInterval = waitTimeout,
         file: StaticString = #file,
         line: UInt = #line
