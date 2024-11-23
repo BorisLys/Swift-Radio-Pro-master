@@ -20,7 +20,6 @@ on:
           - Regression
         default: Regression
 
-
 env:
   PROJECT: 'SwiftRadio.xcodeproj'
   SCHEME: 'SwiftRadioUITests'
@@ -54,17 +53,13 @@ jobs:
           -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
           CODE_SIGNING_ALLOWED='NO'
-
-      - name: Archive Test Artifacts
-        run: |
+          
           mkdir TestData
           patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
           for pattern in "${patterns[@]}"; do 
             find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; 
           done
           echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
-        outputs:
-          artifacts_path: TestData/${{ env.DERIVED_DATA_PATH }}
 
       - uses: actions/upload-artifact@v4
         with:
