@@ -28,24 +28,24 @@ env:
 
 jobs:
   build:
-    name: build
+    name: Build
     runs-on: [macos-15]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Cache Derived Data
-        uses: actions/cache@v4
-        with:
-          path: TestData/DerivedData
-          key: ${{ runner.os }}-deriveddata-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-deriveddata-
+#      - name: Cache Derived Data
+#        uses: actions/cache@v4
+#        with:
+#          path: TestData/DerivedData
+#          key: ${{ runner.os }}-deriveddata-${{ github.sha }}
+#          restore-keys: |
+#            ${{ runner.os }}-deriveddata-
 
       - name: Build Project
         id: build
-        if: steps.cache-step.outputs.cache-hit != 'true'
+#        if: steps.cache-step.outputs.cache-hit != 'true'
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
