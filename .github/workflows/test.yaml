@@ -44,8 +44,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-deriveddata-
 
-      - name: build project
-        id: Build Project
+      - name: Build Project
+        id: build
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
