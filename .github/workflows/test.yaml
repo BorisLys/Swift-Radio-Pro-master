@@ -63,6 +63,8 @@ jobs:
             find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; 
           done
           echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
+        outputs:
+          artifacts_path: TestData/${{ env.DERIVED_DATA_PATH }}
 
       - uses: actions/upload-artifact@v4
         with:
