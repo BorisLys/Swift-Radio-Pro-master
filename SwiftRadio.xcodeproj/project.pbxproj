@@ -68,6 +68,8 @@
 		B0CEAC2F2CDE76810090D6A6 /* AccessibilityIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */; };
 		B0CEAC302CDE7E770090D6A6 /* AccessibilityIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAC2E2CDE76810090D6A6 /* AccessibilityIDs.swift */; };
 		B0E8C5642CE9D2F20044D220 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C5632CE9D2F20044D220 /* TestObserver.swift */; };
+		B0E8C56B2CF1C9800044D220 /* Regression.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = B0E8C56A2CF1C66B0044D220 /* Regression.xctestplan */; };
+		B0E8C56C2CF1C9840044D220 /* Smoke.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = B0E8C5692CF1BCE30044D220 /* Smoke.xctestplan */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
@@ -571,6 +573,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E8C56B2CF1C9800044D220 /* Regression.xctestplan in Resources */,
+				B0E8C56C2CF1C9840044D220 /* Smoke.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
