@@ -7,6 +7,19 @@ on:
   pull_request:
     branches:
       - master
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      test_plan_type:
+        description: "Select the test plan"
+        required: true
+        type: choice
+        options:
+          - Smoke
+          - Regression
+        default: Regression
+
 
 env:
   PROJECT: 'SwiftRadio.xcodeproj'
@@ -23,8 +36,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache Derived Data
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DERIVED_DATA_PATH }}
+          key: ${{ runner.os }}-deriveddata-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-
+
       - name: build project
-        id: build
+        id: Build Project
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
@@ -34,9 +55,13 @@ jobs:
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
           CODE_SIGNING_ALLOWED='NO'
 
+      - name: Archive Test Artifacts
+        run: |
           mkdir TestData
           patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
-          for pattern in "${patterns[@]}"; do find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; done
+          for pattern in "${patterns[@]}"; do 
+            find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; 
+          done
           echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
 
       - uses: actions/upload-artifact@v4
@@ -46,7 +71,7 @@ jobs:
           retention-days: 30
 
   test:
-    name: Test
+    name: Run ${{ github.event.inputs.test_type }} tests
     runs-on: [macos-15]
     needs: build
 
@@ -70,10 +95,8 @@ jobs:
       - name: Run Ui Tests
         run: |
           xcodebuild test-without-building \
-          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
+          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
-          -test-timeouts-enabled YES \
-          -maximum-test-execution-time-allowance 60 \
           -resultBundlePath ./TestResults.xcresult
         continue-on-error: true
 
@@ -102,11 +125,6 @@ jobs:
         with:
           name: allure-results
           path: allure-results
-
-      - name: Display structure of downloaded files
-        run: |
-          ls -R
-          pwd
 
       - name: Load test report history
         uses: actions/checkout@v3
