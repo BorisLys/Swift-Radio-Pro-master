@@ -8,10 +8,9 @@
 
 final class SmokeTest: CommonTest {
         
-    /*
-     Проверка правильного отображения кнопки "Now Playing" в Navigation bar
-     */
     func testDisplayNowPlayingButton() {
+        name("Проверка правильного отображения кнопки Now Playing в Navigation bar")
+        
         step("Проверить что при старте приложения кнопка play не отображается") {
             MainPage.playbutton.verifyElement(event: .disabled)
         }
@@ -26,10 +25,9 @@ final class SmokeTest: CommonTest {
         }
     }
     
-    /*
-     Проверка отображения выбранной станции в кнопке Play
-     */
     func testDisplaySelectedStationInPlayButton() {
+        name("Проверка отображения выбранной станции в кнопке Play")
+        
         let nameOfStation = MainPage.getStationName(index: 0)
         
         step("Проверить отображение текста в кнопке play") {
@@ -46,10 +44,9 @@ final class SmokeTest: CommonTest {
         }
     }
     
-    /*
-     Проверка отображения всех элементов в ячейке
-     */
     func testElementExistOnScreen() {
+        name("Проверка отображения всех элементов в ячейке")
+        
         step("Проверить отображение станции") {
             MainPage.getStation(index: 0).verifyLabel(equal: "Absolute Country Hits")
         }

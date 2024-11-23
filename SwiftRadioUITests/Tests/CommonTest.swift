@@ -17,6 +17,7 @@ class CommonTest: XCTestCase {
         
         continueAfterFailure = false
         app.launch()
+        let _ = app.wait(for: .runningForeground, timeout: 5)
     }
     
     override func tearDown() {

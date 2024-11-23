@@ -6,19 +6,26 @@
 //  Copyright © 2020 matthewfecher.com. All rights reserved.
 //
 import Foundation
+import XCTest
 
 final class RadioInfoTest: CommonTest {
         
-    /*
-     Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку "matthewfetcher.com"
-     */
     func testOpenWebLink() {
+        name("Открытие ссылки - matthewfetcher.com")
+        description("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку matthewfetcher.com")
+        severity(.blocker)
+        owner("b.lysikov")
+        epic("Экран инфор Радио")
+        feature("Ссылка на сайт")
+        story("Открытие ссылки")
+        tags(["tag1", "tag2"])
+        link(name: "Allure example", value: "https://allurereport.org/docs/gettingstarted-readability/#severity")
+
         let versionText = "Xcode 9 / Swift 4"
         let nameOfAppText = "Radio App"
         let textViewText = "FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.\n+ Background Audio performance\n+iTunes API integration to automatically download album art\n+ Loads and parses Icecast metadata (i.e. artist & track names)\n+ Ability to update stations from server without resubmitting to the app store.\n"
         
         step("Открыть первую станцию") {
-            let _ = app.wait(for: .runningForeground, timeout: 5)
             MainPage.getStation(index: 0).tapElement()
         }
         step("Открыть страницу компании") {
@@ -46,10 +53,8 @@ final class RadioInfoTest: CommonTest {
         }
     }
     
-    /*
-     Проверка отображения алерта при нажатии на кнопку email
-     */
     func testOpemEmailMeIfWeDontHaveEmail() {
+        name("Проверка отображения алерта при нажатии на кнопку email")
         step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
@@ -71,10 +76,8 @@ final class RadioInfoTest: CommonTest {
         }
     }
     
-    /*
-     Проверка корректного закрытия текущего экрана
-     */
     func testClosePage() {
+        name("Проверка корректного закрытия текущего экрана")
         let nameOfStation = MainPage.getStationName(index: 0)
         
         step("Открыть первую станцию") {

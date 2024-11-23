@@ -8,10 +8,9 @@
 
 final class StationInfoTest: CommonTest {
     
-   /*
-     Проверка отображение элементов на экране с информацией о станции, также корректную работу переходов по нажатию на кнопку назад(в Navigation bar) и ок на самом экране
-     */
     func testOpenStationDetailsByTapOnNowPlayingButton() {
+        name("Проверка отображение элементов на экране с информацией о станции, также корректную работу переходов по нажатию на кнопку назад(в Navigation bar) и ок на самом экране")
+        severity(.critical)
         let stationName = MainPage.getStationName(index: 0)
         
         step("Открыть первую станцию") {

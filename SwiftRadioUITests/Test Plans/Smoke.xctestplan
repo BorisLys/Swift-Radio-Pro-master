@@ -6,23 +6,33 @@
       "options" : {
 
       }
+    },
+    {
+      "id" : "A5510637-396F-460C-93CB-580AB41316C8",
+      "name" : "Configuration 2",
+      "options" : {
+
+      }
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : false,
+    "diagnosticCollectionPolicy" : "Never",
+    "mainThreadCheckerEnabled" : false,
+    "repeatInNewRunnerProcess" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SwiftRadio.xcodeproj",
+      "identifier" : "9409E1151ABF6FEA00312E2B",
+      "name" : "SwiftRadio"
+    },
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
-      "skippedTests" : [
-        "AppInfoTest",
-        "AppInfoTest\/testOpenWebsiteFromAppInfo()",
-        "CommonTest",
-        "RadioInfoTest",
-        "RadioInfoTest\/testClosePage()",
-        "RadioInfoTest\/testOpemEmailMeIfWeDontHaveEmail()",
-        "RadioInfoTest\/testOpenWebLink()",
-        "StationInfoTest",
-        "StationInfoTest\/testOpenStationDetailsByTapOnNowPlayingButton()"
+      "selectedTests" : [
+        "SmokeTest\/testDisplayNowPlayingButton()",
+        "SmokeTest\/testDisplaySelectedStationInPlayButton()",
+        "SmokeTest\/testElementExistOnScreen()"
       ],
       "target" : {
         "containerPath" : "container:SwiftRadio.xcodeproj",
