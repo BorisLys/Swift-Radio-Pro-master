@@ -70,7 +70,7 @@ jobs:
       - name: Run Ui Tests
         run: |
           xcodebuild test-without-building \
-          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64 \
+          -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' \
           -test-timeouts-enabled YES \
           -maximum-test-execution-time-allowance 60 \
