@@ -83,6 +83,8 @@
 		DAEBB2032517421E0065ECF0 /* StationInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */; };
 		DAEBB2052517491B0065ECF0 /* AppInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */; };
 		DAEBB2082517521D0065ECF0 /* RadioInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB2072517521D0065ECF0 /* RadioInfoTest.swift */; };
+		DAF5BB132CFF5F8D00A9C1E1 /* CrashTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5BB122CFF5F8D00A9C1E1 /* CrashTest.swift */; };
+		DAF5BB152CFF604C00A9C1E1 /* SkipTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5BB142CFF604C00A9C1E1 /* SkipTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		DAEBB2022517421E0065ECF0 /* StationInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoTest.swift; sourceTree = "<group>"; };
 		DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTest.swift; sourceTree = "<group>"; };
 		DAEBB2072517521D0065ECF0 /* RadioInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInfoTest.swift; sourceTree = "<group>"; };
+		DAF5BB122CFF5F8D00A9C1E1 /* CrashTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashTest.swift; sourceTree = "<group>"; };
+		DAF5BB142CFF604C00A9C1E1 /* SkipTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -444,6 +448,8 @@
 				DAEBB2042517491B0065ECF0 /* AppInfoTest.swift */,
 				DAEBB1FD251633AB0065ECF0 /* SmokeTest.swift */,
 				B0E8C5632CE9D2F20044D220 /* TestObserver.swift */,
+				DAF5BB122CFF5F8D00A9C1E1 /* CrashTest.swift */,
+				DAF5BB142CFF604C00A9C1E1 /* SkipTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
 				B0E8C56E2CF1E5940044D220 /* Severity.swift in Sources */,
 				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
+				DAF5BB152CFF604C00A9C1E1 /* SkipTest.swift in Sources */,
 				B05F1B1E2CC795E7007D10D5 /* BundleId.swift in Sources */,
 				B05F1B242CC79908007D10D5 /* XCUIElement+Asserts.swift in Sources */,
 				B05F1B222CC798D0007D10D5 /* XCUIElement+Actions.swift in Sources */,
@@ -622,6 +629,7 @@
 				B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */,
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */,
+				DAF5BB132CFF5F8D00A9C1E1 /* CrashTest.swift in Sources */,
 				B05F1B1B2CC79582007D10D5 /* BaseScreenProtocol.swift in Sources */,
 				DAEBB1F2251627690065ECF0 /* AppInfoPage.swift in Sources */,
 				DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */,
