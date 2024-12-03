@@ -1,12 +1,12 @@
 # Swift-Radio-Pro-master
-## Тестовое задание на позицию автоматизатора iOS
+## Project for Learning XCTest and Improving Test Automation Skills
 
-Проект построен по патерну Page Object и содержит три папки в тагрете с ui тестами:
+This project using the Page Object pattern and includes three folders in the target containing UI tests:
 
-1. Page - Содержит классы с описанием переменных и методов для определенных экранов
-2. Tests - Содержит классы с описанием тестовых сценариев
-3. Extensions - Содержит расширения для XCUIElement, чтобы исключить дублирование кода в методах из папки Page. И расширение определенного теста в котором работаем с системными алертами
+1. 	**Page** - Contains classes with variable and method descriptions for specific screens.
+2.	**Tests** - Contains classes with ui-tests.
+3.	**Extensions** - Contains extensions for XCUIElement to eliminate code duplication in methods from the Page folder. It also includes an extension for specific tests to handle system alerts.
 
-Всего написано 15 тестов на проверку основных сценариев, которые выделил в рамках исследовательского тестирования приложения.
+A total of 15 tests have been written to verify the main scenarios identified during exploratory testing of the application.
 
-Результат прогонов тестов на ci можно посмотреть - https://borislys.github.io/Swift-Radio-Pro-master/
+You can view the CI test run results [here](https://borislys.github.io/Swift-Radio-Pro-master/) 
