@@ -25,6 +25,7 @@ env:
   SCHEME: 'SwiftRadioUITests'
   DERIVED_DATA_PATH: 'DerivedData'
   TEST_RESULTS: './TestResults.xcresult'
+  ALLURE_RESULTS: 'allure-results'
 
 jobs:
   build:
@@ -107,10 +108,12 @@ jobs:
 
       - name: Generate Allure files
         run: |
-          mkdir allure-results
-          ./xcresults export TestResults.xcresult -o allure-results
+          mkdir ${{ env.ALLURE_RESULTS }}
+          ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
+          chmod +x scripts/testOpsReportFormatter.sh
+          scripts/testOpsReportFormatter.sh
           mkdir allure-report
-          allure generate allure-results --report-dir allure-report
+          allure generate ${{ env.ALLURE_RESULTS }} --report-dir allure-report
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
