@@ -47,7 +47,8 @@ jobs:
           -scheme ${{ env.SCHEME }} \
           -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-          CODE_SIGNING_ALLOWED='NO'
+          CODE_SIGNING_ALLOWED='NO' \
+          | xcbeautify --renderer github-actions
           
           mkdir TestData
           patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
@@ -90,12 +91,14 @@ jobs:
             xcodebuild test-without-building \
             -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult | xcbeautify
+            -resultBundlePath ./TestResults.xcresult \
+            | xcbeautify --renderer github-actions
           else
             xcodebuild test-without-building \
             -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult | xcbeautify
+            -resultBundlePath ./TestResults.xcresult \
+            | xcbeautify --renderer github-actions
           fi
         continue-on-error: true
 
@@ -115,7 +118,7 @@ jobs:
           chmod +x scripts/testOpsReportFormatter.sh
           scripts/testOpsReportFormatter.sh
           chmod +x scripts/create_allure_environment.sh
-          scripts/create_allure_environment.sh
+          scripts/createAllureEnvironment.sh
           mkdir allure-report
           allure generate ${{ env.ALLURE_RESULTS }} --report-dir allure-report
 
