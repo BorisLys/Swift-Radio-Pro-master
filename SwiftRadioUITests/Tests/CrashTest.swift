@@ -11,10 +11,10 @@ final class CrashTest: CommonTest {
     func testCrash() {
         name("Проверка обработки краша приложения в отчете")
         
+        fatalError()
         step("Открыть первую станцию") {
-            fatalError()
             MainPage.getStation(index: 0).tapElement()
         }
     }
-    
+
 }

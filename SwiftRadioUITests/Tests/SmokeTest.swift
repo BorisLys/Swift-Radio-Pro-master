@@ -56,16 +56,18 @@ final class SmokeTest: CommonTest {
     }
     
 
-//    /*
-//     Проверка статуса - пауза для трека с радио
-//     */
-//    func testPauseStation() {
-//        mainPage
-//            .tapOnStation(index: 0)
-//        stationDetailsPage
-//            .tapOnPlay()
-//            .checkSongPauseLabel()
-//    }
+    func testPauseStation() {
+        name("Проверка статуса - пауза для трека с радио")
+        step("Открыть первую станцию") {
+            MainPage.getStation(index: 0).tapElement()
+        }
+        step("Нажать на плей") {
+            StationDetailsPage.playButton.tapElement()
+        }
+        step("Проверить паузу") {
+            StationDetailsPage.stopButton.verifyElement()
+        }
+    }
 //    
 //    /*
 //     Проверка статуса - стоп для трека с радио
