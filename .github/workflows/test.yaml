@@ -90,12 +90,12 @@ jobs:
             xcodebuild test-without-building \
             -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult
+            -resultBundlePath ./TestResults.xcresult | xcbeautify
           else
             xcodebuild test-without-building \
             -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult
+            -resultBundlePath ./TestResults.xcresult | xcbeautify
           fi
         continue-on-error: true
 
