@@ -117,7 +117,7 @@ jobs:
           ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
           chmod +x scripts/testOpsReportFormatter.sh
           scripts/testOpsReportFormatter.sh
-          chmod +x scripts/create_allure_environment.sh
+          chmod +x scripts/createAllureEnvironment.sh
           scripts/createAllureEnvironment.sh
           mkdir allure-report
           allure generate ${{ env.ALLURE_RESULTS }} --report-dir allure-report
