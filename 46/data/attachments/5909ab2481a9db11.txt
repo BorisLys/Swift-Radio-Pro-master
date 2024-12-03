@@ -1,4 +1,0 @@
-Query chain:
- →Find: Target Application 'com.borisLysikov.SwiftRadio'
-  ↪︎Find: Descendants matching type Button
-    ↪︎Find: Elements matching predicate '"companyButton" IN identifiers'
