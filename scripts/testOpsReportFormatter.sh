@@ -15,7 +15,7 @@ done
 
 # Изменение статуса из "failed" в "broken" при краше приложения
 for file in "${ALLURE_RESULTS}"/*.json; do
-    if grep -q '"name": "SwiftRadioUITests-Runner' "$file"; then
+    if grep -q 'SwiftRadioUITests-Runner' "$file"; then
         sed -i '' 's/"status": "failed"/"status": "broken"/g' "$file"
     fi
 done

@@ -68,56 +68,65 @@ final class SmokeTest: CommonTest {
             StationDetailsPage.stopButton.verifyElement()
         }
     }
-//    
-//    /*
-//     Проверка статуса - стоп для трека с радио
-//     */
-//    func testStopStation() {
-//        mainPage
-//            .tapOnStation(index: 0)
-//        stationDetailsPage
-//            .tapOnStop()
-//            .checkSongStoppedLabel()
-//    }
-//    
-//    /*
-//     Проверка статуса - ошибка для трека с радио
-//     */
-//    func testErrorStatusForSong() {
-//        mainPage
-//            .tapOnStation(index: 1)
-//        stationDetailsPage
-//            .checkSongErrorLabel()
-//    }
-//    
-//    /*
-//     Проверка открытия правильной станции по нажатию на кнопку "Now Playing" в NavBar
-//     */
-//    func testOpenStationDetailsByTapOnNowPlayingButton() {
-//        let nameOfStation = mainPage.getStationName(indexOfStation: 0)
-//        mainPage
-//            .tapOnStation(index: 0)
-//        stationDetailsPage
-//            .tapOnBackButton()
-//        mainPage
-//            .tapOnNowPlayingButton()
-//        stationDetailsPage
-//            .checkNavbarTitle(stationName: nameOfStation)
-//    }
-//    
-//    /*
-//     Проверка открытия правильной станции по нажатию на кнопку "Play"
-//     */
-//    func testOpenStationDetailsByTapOnPlayingButton() {
-//        let nameOfStation = mainPage.getStationName(indexOfStation: 1)
-//        mainPage
-//            .tapOnStation(index: 1)
-//        stationDetailsPage
-//            .tapOnBackButton()
-//        mainPage
-//            .tapOnPlayButton()
-//        stationDetailsPage
-//            .checkNavbarTitle(stationName: nameOfStation)
-//    }
+    
+    func testStopStation() {
+        name("Проверка статуса - стоп для трека с радио")
+        step("Открыть первую станцию") {
+            MainPage.getStation(index: 0).tapElement()
+        }
+        step("Нажать на стоп") {
+            StationDetailsPage.stopButton.tapElement()
+            
+            step("Проверить лейбл станции") {
+                StationDetailsPage.songLabel.verifyLabel(equal: "Station Stopped...")
+            }
+        }
+    }
+
+    func testErrorStatusForSong() {
+        name("Проверка статуса - ошибка для трека с радио")
+        step("Открыть вторую станцию") {
+            MainPage.getStation(index: 1).tapElement()
+        }
+        step("Проверить статус ошибки") {
+            StationDetailsPage.songLabel.verifyLabel(equal: "Error Playing")
+        }
+    }
+    
+    func testOpenStationDetailsByTapOnNowPlayingButton() {
+        name("Проверка открытия правильной станции по нажатию на кнопку Now Playing в NavBar")
+        let nameOfStation = MainPage.getStationName(index: 0)
+        step("Открыть первую станцию") {
+            MainPage.getStation(index: 0).tapElement()
+        }
+        step("Нажать кнопку назад") {
+            StationDetailsPage.navigationBarBackButton.tapElement()
+        }
+        step("Нажать кнопку Play") {
+            MainPage.playbutton.tapElement()
+        }
+        step("Проверить станцию в Nabbar") {
+            StationDetailsPage.navigationBarTitle.verifyText(equal: nameOfStation)
+        }
+    }
+
+    func testOpenStationDetailsByTapOnPlayingButton() {
+        name("Проверка открытия правильной станции по нажатию на кнопку Play")
+        
+        let nameOfStation = MainPage.getStationName(index: 1)
+        
+        step("Открыть вторую станцию") {
+            MainPage.getStation(index: 1).tapElement()
+        }
+        step("Нажать кнопку назад") {
+            StationDetailsPage.navigationBarBackButton.tapElement()
+        }
+        step("Нажать на кнопку плей") {
+            MainPage.playbutton.tapElement()
+        }
+        step("Проверить название станции в NavBar") {
+            MainPage.navigationBarTitle.verifyLabel(equal: nameOfStation)
+        }
+    }
             
 }
