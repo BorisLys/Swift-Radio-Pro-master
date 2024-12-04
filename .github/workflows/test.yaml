@@ -93,7 +93,7 @@ jobs:
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
             -resultBundlePath ./TestResults.xcresult \
             -parallel-testing-enabled YES \
-            -maximum-concurrent-test-simulator-destinations 2
+            -maximum-concurrent-test-simulator-destinations 2 \
             | xcbeautify --renderer github-actions
           else
             xcodebuild test-without-building \
