@@ -9,5 +9,6 @@
 enum BundleId: String {
     case app = "com.borisLysikov.SwiftRadio"
     case safari = "com.apple.mobilesafari"
+    case springboard = "com.apple.springboard"
 }
 

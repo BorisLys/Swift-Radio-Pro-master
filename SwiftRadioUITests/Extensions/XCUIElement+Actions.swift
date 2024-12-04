@@ -163,4 +163,18 @@ extension XCUIElement {
         left.press(forDuration: 1, thenDragTo: right)
     }
     
+    func openNotificationCenter() {
+        let app = XCUIApplication()
+        let coord1 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.01))
+        let coord2 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.8))
+        coord1.press(forDuration: 0.1, thenDragTo: coord2)
+    }
+    
+    func openControlCenter() {
+        let app = XCUIApplication()
+        let coord1 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.01))
+        let coord2 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.2))
+        coord1.press(forDuration: 0.1, thenDragTo: coord2)
+    }
+    
 }
