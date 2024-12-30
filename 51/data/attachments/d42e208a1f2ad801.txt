@@ -1,5 +1,0 @@
-Query chain:
- →Find: Target Application 'com.borisLysikov.SwiftRadio'
-  ↪︎Find: Descendants matching type NavigationBar
-    ↪︎Find: Children matching type Button
-      ↪︎Find: First Match
