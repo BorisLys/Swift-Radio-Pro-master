@@ -1,4 +1,0 @@
-Query chain:
- →Find: Application 'com.apple.mobilesafari'
-  ↪︎Find: Descendants matching type TextField
-    ↪︎Find: First Match
