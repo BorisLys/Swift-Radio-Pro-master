@@ -81,6 +81,7 @@ final class RadioInfoTest: CommonTest {
         let nameOfStation = MainPage.getStationName(index: 0)
         
         step("Открыть первую станцию") {
+            addScreenshotToReport()
             MainPage.getStation(index: 0).tapElement()
         }
         step("Открыть страницу компании") {

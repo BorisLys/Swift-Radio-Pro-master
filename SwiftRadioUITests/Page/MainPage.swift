@@ -8,6 +8,8 @@
 
 import XCTest
 
+/// Главный экран приложения
+/// - [Figma](https://www.figma.com/)
 struct MainPage: BaseScreen, NavigationBar {
     static private let stationCell = "stationCell"
     
@@ -29,5 +31,4 @@ struct MainPage: BaseScreen, NavigationBar {
     static func getStationDescriptionName(index: Int) -> String {
         app.cells.matching(identifier: stationCell).element(boundBy: index).staticTexts["stationDesc"].firstMatch.label
     }
-    
 }

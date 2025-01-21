@@ -8,6 +8,8 @@
 
 import XCTest
 
+/// Экран информации об приложении
+/// - [Figma](https://www.figma.com/)
 struct AppInfoPage: BaseScreen {
     static let closeButton = app.buttons["closeButton"]
     static let swiftImage = app.images["swiftImage"]

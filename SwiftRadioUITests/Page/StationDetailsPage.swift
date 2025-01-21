@@ -8,6 +8,8 @@
 
 import XCTest
 
+/// Экран деталей станции
+/// - [Figma](https://www.figma.com/)
 struct StationDetailsPage: BaseScreen, NavigationBar {
     
     // MARK: - UI elements and variables

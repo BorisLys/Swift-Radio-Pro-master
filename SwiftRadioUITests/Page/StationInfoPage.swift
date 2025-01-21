@@ -9,6 +9,8 @@
 import XCTest
 import SwiftRadio
 
+/// Экран с информацией об станции
+/// - [Figma](https://www.figma.com/)
 struct StationInfoPage: BaseScreen, NavigationBar {
     
     typealias id = AccessibilityIDs.infoDetailView

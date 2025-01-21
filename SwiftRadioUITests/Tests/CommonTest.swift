@@ -23,4 +23,8 @@ class CommonTest: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+    
+    func addScreenshotToReport() {
+        add(XCTAttachment(screenshot: XCUIScreen.main.screenshot()))
+    }
 }

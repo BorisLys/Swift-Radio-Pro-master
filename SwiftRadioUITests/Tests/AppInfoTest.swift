@@ -8,10 +8,10 @@
 
 final class AppInfoTest: CommonTest {
     
+    let authorsText = "Matt Fecher & Fethi El Hassasna"
+    
     func testOpenWebsiteFromAppInfo() {
         name("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку Website")
-        let openSourceText = "Open Source Project"
-        let authorsText = "Matt Fecher & Fethi El Hassasna"
         
         step("Нажать на кнопку инфо") {
             MainPage.navigationBarBackButton.tapElement()
