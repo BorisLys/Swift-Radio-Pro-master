@@ -83,6 +83,9 @@ jobs:
           brew tap malinskiy/tap
           brew install malinskiy/tap/marathon
 
+      - name: Install ffmpeg for Marathon
+        run: brew install ffmpeg
+
       - name: Run Ui Tests
         run: marathon -m marathon/Marathonfile
         continue-on-error: true
