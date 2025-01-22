@@ -84,8 +84,5 @@ jobs:
           brew install malinskiy/tap/marathon
 
       - name: Run Ui Tests
-        run: |
-          pwd
-          ls -la
-          marathon -m marathon/Marathonfile
+        run: marathon -m marathon/Marathonfile
         continue-on-error: true
