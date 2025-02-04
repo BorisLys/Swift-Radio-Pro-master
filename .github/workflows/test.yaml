@@ -32,6 +32,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: resolve spm dependency
+        run: xcodebuild -resolvePackageDependencies
+
       - name: Build Project
         id: build
         run: |
