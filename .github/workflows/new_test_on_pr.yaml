@@ -69,8 +69,9 @@ jobs:
 
       - name: Run Ui Tests
         run: |
-          git fetch origin master
-          TESTS=$(git diff origin/master...HEAD --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
+          git fetch ${{ github.base_ref }}
+          git fetch ${{ github.head_ref }}
+          TESTS=$(git diff remotes/origin/${{ github.base_ref }}...remotes/origin/${{ github.head_ref }} --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
               filename=$(basename "$file" .swift)  
               git diff --unified=0 -- "$file" | awk -v f="$filename" '
               /^\+.*func test/ {
