@@ -73,7 +73,12 @@ jobs:
         run: |
           git fetch --depth 100 origin ${{ github.base_ref }}
           git fetch --depth 100 origin ${{ github.head_ref }}
+          
+          git diff origin/${{ github.base_ref }}...origin/${{ github.head_ref }} --name-only -- SwiftRadioUITests/Tests/
+
           TESTS=$(git diff origin/${{ github.base_ref }}...origin/${{ github.head_ref }} --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
+              echo "Processing file: $file"  # Отладочный вывод
+          
               filename=$(basename "$file" .swift)  
               git diff --unified=0 -- "$file" | awk -v f="$filename" '
               /^\+.*func test/ {
