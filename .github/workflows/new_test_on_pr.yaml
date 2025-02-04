@@ -69,7 +69,8 @@ jobs:
 
       - name: Run Ui Tests
         run: |
-          TESTS=$(git diff --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
+          git fetch origin master
+          TESTS=$(git diff origin/master...HEAD --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
               filename=$(basename "$file" .swift)  
               git diff --unified=0 -- "$file" | awk -v f="$filename" '
               /^\+.*func test/ {
@@ -78,10 +79,17 @@ jobs:
                   print "SwiftRadioUITests" "/" f "/" func_name
               }'
           done)
-
-          xcodebuild test-without-building \
-            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
-            -resultBundlePath ./TestResults.xcresult \
-            $(echo "$TESTS" | awk '{print "-only-testing:" $0}')
-            | xcbeautify --renderer github-actions
+          
+          if [[ -n "$TESTS" ]]; then
+            echo "Found tests:"
+            echo "$TESTS"
+            xcodebuild test-without-building \
+              -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
+              -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+              -resultBundlePath ./TestResults.xcresult \
+              $(echo "$TESTS" | awk '{print "-only-testing:" $0}') \
+              | xcbeautify --renderer github-actions
+          else
+            echo "No tests found. Skipping Run tests."
+            exit 0
+          fi
