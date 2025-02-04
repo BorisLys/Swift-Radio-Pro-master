@@ -80,7 +80,7 @@ jobs:
               echo "Processing file: $file"  # Отладочный вывод
           
               filename=$(basename "$file" .swift)  
-              git diff --unified=0 -- "$file" | awk -v f="$filename" '
+              git diff origin/${{ github.base_ref }}...origin/${{ github.head_ref }} --unified=0 -- "$file" | awk -v f="$filename" '
               /^\+.*func test/ {
                   func_name=$3;
                   gsub("\\(.*", "", func_name);
