@@ -1,0 +1,87 @@
+name: New Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - master
+    paths:
+      - 'SwiftRadioUITests/Tests/**'
+
+env:
+  PROJECT: 'SwiftRadio.xcodeproj'
+  SCHEME: 'SwiftRadioUITests'
+  DERIVED_DATA_PATH: 'DerivedData'
+  TEST_RESULTS: './TestResults.xcresult'
+  SIMULATOR_VERSION: '18.0'
+  SIMULATOR_NAME: 'iPhone 16'
+
+jobs:
+  build:
+    name: Build
+    runs-on: [macos-15]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: resolve spm dependency
+        run: xcodebuild -resolvePackageDependencies
+
+      - name: Build Project
+        id: build
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+          -project ${{ env.PROJECT }} \
+          -scheme ${{ env.SCHEME }} \
+          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
+          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          CODE_SIGNING_ALLOWED='NO' \
+          | xcbeautify --renderer github-actions
+          
+          mkdir TestData
+          patterns=("*.xctest" "*.app" "*.xctestrun" "*.framework" "*.bundle")
+          for pattern in "${patterns[@]}"; do 
+            find "${{ env.DERIVED_DATA_PATH }}" -name "$pattern" -print | pax -rw -pe "TestData"; 
+          done
+          echo "artifacts_path=TestData/${{ env.DERIVED_DATA_PATH }}" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ${{ steps.build.outputs.artifacts_path }}
+          name: TestData
+          retention-days: 7
+
+  test:
+    name: Run new tests
+    runs-on: [macos-15]
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: TestData
+          path: ${{ env.DERIVED_DATA_PATH }}
+
+      - name: Run Ui Tests
+        run: |
+          TESTS=$(git diff --name-only -- SwiftRadioUITests/Tests/ | grep '.*Test' | while read file; do
+              filename=$(basename "$file" .swift)  
+              git diff --unified=0 -- "$file" | awk -v f="$filename" '
+              /^\+.*func test/ {
+                  func_name=$3;
+                  gsub("\\(.*", "", func_name);
+                  print "SwiftRadioUITests" "/" f "/" func_name
+              }'
+          done)
+
+          xcodebuild test-without-building \
+            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+            -resultBundlePath ./TestResults.xcresult \
+            $(echo "$TESTS" | awk '{print "-only-testing:" $0}')
+            | xcbeautify --renderer github-actions
