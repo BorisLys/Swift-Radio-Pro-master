@@ -19,4 +19,17 @@ public enum AccessibilityIDs {
         public static let okayButton = "okayButton"
     }
     
+    public enum nowPlayingViewController {
+        
+        public static let albumImageView = "albumImageView"
+        public static let artistLabel = "artistLabel"
+        public static let playingButton = "playingButton"
+        public static let songLabel = "songLabel"
+        public static let stationDescLabel = "stationDescLabel"
+        public static let volumeParentView = "volumeParentView"
+        public static let previousButton = "previousButton"
+        public static let nextButton = "nextButton"
+        public static let airPlayView = "airPlayView"
+    }
+    
 }

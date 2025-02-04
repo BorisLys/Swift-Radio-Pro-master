@@ -61,6 +61,8 @@ class NowPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAccessibilityIdentifier()
+        
         // Create Now Playing BarItem
         createNowPlayingAnimation()
         
@@ -362,5 +364,11 @@ class NowPlayingViewController: UIViewController {
             }
         }
         present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+extension NowPlayingViewController {
+    private func setAccessibilityIdentifier() {
+        artistLabel.accessibilityIdentifier = AccessibilityIDs.nowPlayingViewController.artistLabel
     }
 }

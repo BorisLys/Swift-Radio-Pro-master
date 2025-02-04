@@ -73,6 +73,8 @@
 		B0E8C56E2CF1E5940044D220 /* Severity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C56D2CF1E5900044D220 /* Severity.swift */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
+		DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF452D51E76E00B7AF55 /* ShowTime */; };
+		DADDDF482D51E77A00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF472D51E77A00B7AF55 /* ShowTime */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
 		DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E725161EE50065ECF0 /* CommonTest.swift */; };
 		DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1EB251621B50065ECF0 /* StationDetailsPage.swift */; };
@@ -201,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADDDF482D51E77A00B7AF55 /* ShowTime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,7 @@
 				9409E1181ABF6FEA00312E2B /* SwiftRadio */,
 				2C5545BB1C1124DE00728469 /* SwiftRadioUITests */,
 				B0CEAC242CD7DF810090D6A6 /* SwiftRadioTests */,
+				DADDDF442D51E76E00B7AF55 /* Frameworks */,
 				9409E1171ABF6FEA00312E2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -423,6 +428,13 @@
 				81AD229A21646DEA002ADFDD /* Reachability.swift */,
 			);
 			path = FRadioPlayer;
+			sourceTree = "<group>";
+		};
+		DADDDF442D51E76E00B7AF55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DAEBB1E225161E240065ECF0 /* Page */ = {
@@ -566,6 +578,9 @@
 				Base,
 			);
 			mainGroup = 9409E10D1ABF6FE900312E2B;
+			packageReferences = (
+				DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */,
+			);
 			productRefGroup = 9409E1171ABF6FEA00312E2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -725,7 +740,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftRadioUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -748,7 +763,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftRadioUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -881,7 +896,7 @@
 					"$(PROJECT_DIR)/SwiftRadio",
 				);
 				INFOPLIST_FILE = SwiftRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -912,7 +927,7 @@
 					"$(PROJECT_DIR)/SwiftRadio",
 				);
 				INFOPLIST_FILE = SwiftRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -946,7 +961,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -979,7 +994,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
@@ -1032,6 +1047,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KaneCheshire/ShowTime.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DADDDF452D51E76E00B7AF55 /* ShowTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */;
+			productName = ShowTime;
+		};
+		DADDDF472D51E77A00B7AF55 /* ShowTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */;
+			productName = ShowTime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9409E10E1ABF6FE900312E2B /* Project object */;
 }

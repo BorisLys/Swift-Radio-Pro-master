@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make status bar white
         UINavigationBar.appearance().barStyle = .black
         
+        
         // FRadioPlayer config
         FRadioPlayer.shared.isAutoPlay = true
         FRadioPlayer.shared.enableArtwork = true
@@ -91,3 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    private func handleUITestArgument() {
+        if CommandLine.arguments.contains("-noAUth") {
+            // Пусти без авторизации
+        }
+    }
+}
