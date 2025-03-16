@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: "Запускать тесты?"
+        required: true
+        default: "true"
+        type: boolean
+
+env:
+  PROJECT: 'SwiftRadio.xcodeproj'
+  SCHEME: 'SwiftRadioUITests'
+  DERIVED_DATA_PATH: 'DerivedData'
+  TEST_RESULTS: './TestResults.xcresult'
+  ALLURE_RESULTS: 'allure-results'
+  SIMULATOR_VERSION: '18.0'
+  SIMULATOR_NAME: 'iPhone 16'
+
+jobs:
+  build:
+    name: Run test
+    runs-on: [work_runner]
+
+    steps:
+      - name: Run test
+        if: inputs.run_tests == 'true'
+        run: |
+          xcodebuild test \
+          -project ${{ env.PROJECT }} \
+          -scheme ${{ env.SCHEME }} \
+          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
+          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          CODE_SIGNING_ALLOWED='NO' \
+          | xcbeautify --renderer github-actions
