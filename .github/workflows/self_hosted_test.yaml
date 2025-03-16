@@ -26,10 +26,10 @@ jobs:
     steps:
       - name: Run test
         run: |
+          set -o pipefail
           xcodebuild test \
           -project ${{ env.PROJECT }} \
           -scheme ${{ env.SCHEME }} \
-          -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
           CODE_SIGNING_ALLOWED='NO' \
           | xcbeautify --renderer github-actions
