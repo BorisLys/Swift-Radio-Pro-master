@@ -24,6 +24,9 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Run test
         run: |
           set -o pipefail
