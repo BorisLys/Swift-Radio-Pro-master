@@ -25,7 +25,6 @@ jobs:
 
     steps:
       - name: Run test
-        if: inputs.run_tests == 'true'
         run: |
           xcodebuild test \
           -project ${{ env.PROJECT }} \
