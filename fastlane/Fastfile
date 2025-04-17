@@ -1,0 +1,6 @@
+desc "Run ui test"
+lane :tests do
+    run_tests(project: "SwiftRadio.xcodeproj",
+              device: "iPhone 16 Pro (18.0)",
+              scheme: "SwiftRadioUITests")
+end
