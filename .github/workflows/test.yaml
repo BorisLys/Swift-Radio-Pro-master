@@ -187,7 +187,11 @@ jobs:
           skipped=$(jq -r '.metrics.testsSkippedCount._value' result.json)
           passed=$((total - failed - skipped))
 
-          TEXT="✅ Успешных: $passed\n❌ Упавших: $failed\n⏭ Пропущенных: $skipped\n📊 Всего: $total"
+          TEXT="*🧪 Результаты тестов:*
+          ✅ Успешных: $passed
+          ❌ Упавших: $failed
+          ⏭ Пропущенных: $skipped
+          📊 Всего: $total"
 
           curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
             -d chat_id=97403731 \
