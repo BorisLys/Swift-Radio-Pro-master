@@ -20,7 +20,7 @@ env:
   DERIVED_DATA_PATH: 'DerivedData'
   TEST_RESULTS: './TestResults.xcresult'
   ALLURE_RESULTS: 'allure-results'
-  SIMULATOR_VERSION: '26.0'
+  SIMULATOR_VERSION: '18.5'
   SIMULATOR_NAME: 'iPhone 16'
 
 jobs:
