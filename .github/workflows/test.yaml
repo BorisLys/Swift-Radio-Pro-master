@@ -51,6 +51,7 @@ jobs:
           -scheme ${{ env.SCHEME }} \
           -derivedDataPath ${{ env.DERIVED_DATA_PATH }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          CODE_SIGNING_ALLOWED='NO' \
           | xcbeautify --renderer github-actions
           
           mkdir TestData
@@ -101,6 +102,7 @@ jobs:
             -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
             -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
             -resultBundlePath ./TestResults.xcresult \
+            CODE_SIGNING_ALLOWED='NO' \
             | xcbeautify --renderer github-actions
           fi
         continue-on-error: true
