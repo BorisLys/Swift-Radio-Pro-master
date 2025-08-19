@@ -77,9 +77,12 @@ jobs:
         run: |
           curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
           chmod +x xcresults
+          
+      - name: Install npm
+        run: brew install npm
 
       - name: Install Allure
-        run: brew install allure
+        run: npm install -g allure
 
       - name: Run Ui Tests
         run: |
@@ -116,14 +119,14 @@ jobs:
           chmod +x scripts/createAllureEnvironment.sh
           scripts/createAllureEnvironment.sh
           mkdir allure-report
-          allure generate ${{ env.ALLURE_RESULTS }} --report-dir allure-report
+          allure generate ${{ env.ALLURE_RESULTS }} -o allure-report
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
+          name: allure-report
           path: |
-            allure-results/
+            allure-report/
           retention-days: 1
 
       - name: Upload XCResult
@@ -141,32 +144,14 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: allure-results
-          path: allure-results
+          name: allure-report
+          path: allure-report
 
-      - name: Load test report history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Build test report
-        uses: simple-elf/allure-report-action@v1.7
-        if: always()
-        with:
-          gh_pages: gh-pages
-          allure_history: allure-history
-          allure_results: ./allure-results
-
-      - name: Publish test report
-        uses: peaceiris/actions-gh-pages@v3
-        if: always()
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
 
   notification:
     runs-on: macos-15
