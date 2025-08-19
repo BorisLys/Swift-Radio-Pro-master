@@ -20,7 +20,7 @@ env:
   DERIVED_DATA_PATH: 'DerivedData'
   TEST_RESULTS: './TestResults.xcresult'
   ALLURE_RESULTS: 'allure-results'
-  SIMULATOR_VERSION: '18.0'
+  SIMULATOR_VERSION: '18.6'
   SIMULATOR_NAME: 'iPhone 16'
 
 jobs:
@@ -38,6 +38,7 @@ jobs:
           xcode-select -p
           xcodebuild -showsdks
           xcrun simctl list runtimes
+          xcrun simctl list devices
 
       - name: resolve spm dependency
         run: xcodebuild -resolvePackageDependencies
