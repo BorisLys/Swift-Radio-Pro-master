@@ -20,7 +20,7 @@ env:
   DERIVED_DATA_PATH: 'DerivedData'
   TEST_RESULTS: './TestResults.xcresult'
   ALLURE_RESULTS: 'allure-results'
-  SIMULATOR_VERSION: '18.6'
+  SIMULATOR_VERSION: '26.0'
   SIMULATOR_NAME: 'iPhone 16'
 
 jobs:
@@ -78,9 +78,6 @@ jobs:
           curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
           chmod +x xcresults
           
-      - name: Install npm
-        run: brew install npm
-
       - name: Install Allure
         run: npm install -g allure
 
