@@ -10,8 +10,10 @@ on:
         type: boolean
       ALLURE_JOB_RUN_ID:
         description: ALLURE_JOB_RUN_ID service parameter. Leave blank.
+        required: false
       ALLURE_USERNAME:
         description: ALLURE_USERNAME service parameter. Leave blank.
+        required: false
 
 env:
   PROJECT: 'SwiftRadio.xcodeproj'
@@ -21,7 +23,7 @@ env:
   SIMULATOR_NAME: 'iPhone 17 Pro'
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
-  ALLURE_ENDPOINT: https://testops.example.com
+  ALLURE_ENDPOINT: https://dodobrands.qatools.cloud
   ALLURE_PROJECT_ID: 1485
   ALLURE_RESULTS: ./allure-results
 
@@ -45,6 +47,7 @@ jobs:
         run: |
           curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
           chmod +x xcresults
+
       - name: Run test from TestOps
         run: |
           command="xcodebuild test \
@@ -64,10 +67,12 @@ jobs:
           command+="| xcbeautify --renderer github-actions"
           echo "$command"
           eval "$command"
+
       - name: Generate Allure results files
         run: |
           mkdir ${{ env.ALLURE_RESULTS }}
           ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
+
       - name: Upload Allure Results to TestOps
         run: |
           allurectl upload ${{ env.ALLURE_RESULTS }}
