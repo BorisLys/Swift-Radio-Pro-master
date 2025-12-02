@@ -48,33 +48,33 @@ jobs:
           curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
           chmod +x xcresults
 
-      - name: Run all test
-        run: |
-          xcodebuild test \
-          -project ${{ env.PROJECT }} \
-          -scheme ${{ env.SCHEME }} \
-          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-          -resultBundlePath ./TestResults.xcresult | xcbeautify --renderer github-actions
-
-#      - name: Run test from TestOps
+#      - name: Run all test
 #        run: |
-#          command="xcodebuild test \
+#          xcodebuild test \
 #          -project ${{ env.PROJECT }} \
 #          -scheme ${{ env.SCHEME }} \
 #          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-#          -resultBundlePath ./TestResults.xcresult"
-#          if [ -n "$ALLURE_JOB_RUN_ID" ]; then
-#            allurectl job-run plan --output-file ./testplan.json
-#            cat ./testplan.json
-#            test_array=($(jq -r '.tests[].selector' ./testplan.json | tr -d '()'))
-#            echo ${test_array}
-#            for test in "${test_array[@]}"; do
-#              command+=" -only-testing:SwiftRadioUITests/$test"
-#            done
-#          fi
-#          command+="| xcbeautify --renderer github-actions"
-#          echo "$command"
-#          eval "$command"
+#          -resultBundlePath ./TestResults.xcresult | xcbeautify --renderer github-actions
+
+      - name: Run test from TestOps
+        run: |
+          command="xcodebuild test \
+          -project ${{ env.PROJECT }} \
+          -scheme ${{ env.SCHEME }} \
+          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          -resultBundlePath ./TestResults.xcresult"
+          if [ -n "$ALLURE_JOB_RUN_ID" ]; then
+            allurectl job-run plan --output-file ./testplan.json
+            cat ./testplan.json
+            test_array=($(jq -r '.tests[].selector' ./testplan.json | tr -d '()'))
+            echo ${test_array}
+            for test in "${test_array[@]}"; do
+              command+=" -only-testing:SwiftRadioUITests/$test"
+            done
+          fi
+          command+="| xcbeautify --renderer github-actions"
+          echo "$command"
+          eval "$command"
 
       - name: Generate Allure results files
         run: |
