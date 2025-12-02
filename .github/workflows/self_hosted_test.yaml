@@ -8,15 +8,22 @@ on:
         required: true
         default: "true"
         type: boolean
+      ALLURE_JOB_RUN_ID:
+        description: ALLURE_JOB_RUN_ID service parameter. Leave blank.
+      ALLURE_USERNAME:
+        description: ALLURE_USERNAME service parameter. Leave blank.
 
 env:
   PROJECT: 'SwiftRadio.xcodeproj'
   SCHEME: 'SwiftRadioUITests'
   DERIVED_DATA_PATH: 'DerivedData'
-  TEST_RESULTS: './TestResults.xcresult'
-  ALLURE_RESULTS: 'allure-results'
-  SIMULATOR_VERSION: '18.0'
-  SIMULATOR_NAME: 'iPhone 16'
+  SIMULATOR_VERSION: '26.0'
+  SIMULATOR_NAME: 'iPhone 17 Pro'
+  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  ALLURE_ENDPOINT: https://testops.example.com
+  ALLURE_PROJECT_ID: 1485
+  ALLURE_RESULTS: ./allure-results
 
 jobs:
   build:
@@ -26,13 +33,41 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Run test
+
+      - name: Download allurectl
+        uses: allure-framework/setup-allurectl@v1
+        with:
+          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
+
+      - name: Download Allure Parser of XCResults
         run: |
-          set -o pipefail
-          xcodebuild test \
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+          chmod +x xcresults
+      - name: Run test from TestOps
+        run: |
+          command="xcodebuild test \
           -project ${{ env.PROJECT }} \
           -scheme ${{ env.SCHEME }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-          CODE_SIGNING_ALLOWED='NO' \
-          | xcbeautify --renderer github-actions
+          -resultBundlePath ./TestResults.xcresult"
+          if [ -n "$ALLURE_JOB_RUN_ID" ]; then
+            allurectl job-run plan --output-file ./testplan.json
+            cat ./testplan.json
+            test_array=($(jq -r '.tests[].selector' ./testplan.json | tr -d '()'))
+            echo ${test_array}
+            for test in "${test_array[@]}"; do
+              command+=" -only-testing:SwiftRadioUITests/$test"
+            done
+          fi
+          command+="| xcbeautify --renderer github-actions"
+          echo "$command"
+          eval "$command"
+      - name: Generate Allure results files
+        run: |
+          mkdir ${{ env.ALLURE_RESULTS }}
+          ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
+      - name: Upload Allure Results to TestOps
+        run: |
+          allurectl upload ${{ env.ALLURE_RESULTS }}
