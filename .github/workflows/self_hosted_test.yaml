@@ -54,7 +54,7 @@ jobs:
           -project ${{ env.PROJECT }} \
           -scheme ${{ env.SCHEME }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-          -resultBundlePath ./TestResults.xcresult | xcbeautify --renderer github-actions"
+          -resultBundlePath ./TestResults.xcresult | xcbeautify --renderer github-actions
 
 #      - name: Run test from TestOps
 #        run: |
