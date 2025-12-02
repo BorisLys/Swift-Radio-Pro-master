@@ -36,17 +36,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-#      - name: Download allurectl
-#        uses: allure-framework/setup-allurectl@v1
-#        with:
-#          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
-#          allure-token: ${{ secrets.ALLURE_TOKEN }}
-#          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
-#
-#      - name: Download Allure Parser of XCResults
-#        run: |
-#          curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
-#          chmod +x xcresults
+      - name: Download allurectl
+        uses: allure-framework/setup-allurectl@v1
+        with:
+          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
+
+      - name: Download Allure Parser of XCResults
+        run: |
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+          chmod +x xcresults
 
       - name: Run all test
         run: |
