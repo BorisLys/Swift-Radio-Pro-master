@@ -18,6 +18,12 @@
   "defaultOptions" : {
     "codeCoverage" : false,
     "diagnosticCollectionPolicy" : "Never",
+    "environmentVariableEntries" : [
+      {
+        "key" : "ALLURE_RESULTS_DIR",
+        "value" : "$(SOURCE_ROOT)\/allure-results"
+      }
+    ],
     "mainThreadCheckerEnabled" : false,
     "repeatInNewRunnerProcess" : true,
     "targetForVariableExpansion" : {

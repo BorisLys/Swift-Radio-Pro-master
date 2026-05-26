@@ -7,24 +7,28 @@
 //
 
 import XCTest
+import AllureSwiftXCTest
 
 class CommonTest: XCTestCase {
-    
+
     let app = XCUIApplication()
-        
+
     override func setUp() {
         super.setUp()
-        
         continueAfterFailure = false
         app.launch()
         let _ = app.wait(for: .runningForeground, timeout: 5)
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func addScreenshotToReport() {
-        add(XCTAttachment(screenshot: XCUIScreen.main.screenshot()))
+        allureAttachment(
+            name: "screenshot",
+            data: XCUIScreen.main.screenshot().pngRepresentation,
+            type: "public.png"
+        )
     }
 }

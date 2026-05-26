@@ -6,15 +6,17 @@
 //  Copyright © 2024 matthewfecher.com. All rights reserved.
 //
 
+import XCTest
+import AllureSwiftXCTest
+
 final class CrashTest: CommonTest {
-    
+
     func testCrash() {
-        name("Проверка обработки краша приложения в отчете")
-        
+        allureName("Проверка обработки краша приложения в отчете")
+
         fatalError()
-        step("Открыть первую станцию") {
+        allureStep("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
     }
-
 }

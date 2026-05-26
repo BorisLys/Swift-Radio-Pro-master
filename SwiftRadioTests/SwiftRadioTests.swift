@@ -7,10 +7,12 @@
 //
 
 import Testing
+import AllureSwiftTesting
 
 struct SwiftRadioTests {
 
-    @Test func example() async throws {
+    @Test(.allureId(1234), .epic("Example"), .severity(.normal))
+    func example() async throws {
         #expect(2 > 1)
     }
 }

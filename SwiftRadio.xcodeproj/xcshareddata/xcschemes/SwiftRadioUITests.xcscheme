@@ -11,6 +11,13 @@
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "ALLURE_RESULTS_DIR"
+            value = "$(SOURCE_ROOT)/allure-results"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <TestPlans>
          <TestPlanReference
             reference = "container:SwiftRadioUITests/Test Plans/Smoke.xctestplan">

@@ -60,7 +60,6 @@
 		94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */; };
 		B05F1B1B2CC79582007D10D5 /* BaseScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */; };
 		B05F1B1E2CC795E7007D10D5 /* BundleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1D2CC795E7007D10D5 /* BundleId.swift */; };
-		B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */; };
 		B05F1B222CC798D0007D10D5 /* XCUIElement+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */; };
 		B05F1B242CC79908007D10D5 /* XCUIElement+Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */; };
 		B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */; };
@@ -70,9 +69,10 @@
 		B0E8C5642CE9D2F20044D220 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C5632CE9D2F20044D220 /* TestObserver.swift */; };
 		B0E8C56B2CF1C9800044D220 /* Regression.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = B0E8C56A2CF1C66B0044D220 /* Regression.xctestplan */; };
 		B0E8C56C2CF1C9840044D220 /* Smoke.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = B0E8C5692CF1BCE30044D220 /* Smoke.xctestplan */; };
-		B0E8C56E2CF1E5940044D220 /* Severity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C56D2CF1E5900044D220 /* Severity.swift */; };
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
+		DA88D1F42FC32A49006ECD48 /* AllureSwiftTesting in Frameworks */ = {isa = PBXBuildFile; productRef = DA88D1F32FC32A49006ECD48 /* AllureSwiftTesting */; };
+		DA88D1F62FC332D9006ECD48 /* AllureSwiftXCTest in Frameworks */ = {isa = PBXBuildFile; productRef = DA88D1F52FC332D9006ECD48 /* AllureSwiftXCTest */; };
 		DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF452D51E76E00B7AF55 /* ShowTime */; };
 		DADDDF482D51E77A00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF472D51E77A00B7AF55 /* ShowTime */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
@@ -167,7 +167,6 @@
 		94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DropShadow.swift"; sourceTree = "<group>"; };
 		B05F1B1A2CC79582007D10D5 /* BaseScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenProtocol.swift; sourceTree = "<group>"; };
 		B05F1B1D2CC795E7007D10D5 /* BundleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleId.swift; sourceTree = "<group>"; };
-		B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Allure.swift"; sourceTree = "<group>"; };
 		B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Actions.swift"; sourceTree = "<group>"; };
 		B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Asserts.swift"; sourceTree = "<group>"; };
 		B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Waiting.swift"; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 		B0E8C5632CE9D2F20044D220 /* TestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObserver.swift; sourceTree = "<group>"; };
 		B0E8C5692CF1BCE30044D220 /* Smoke.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Smoke.xctestplan; sourceTree = "<group>"; };
 		B0E8C56A2CF1C66B0044D220 /* Regression.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Regression.xctestplan; sourceTree = "<group>"; };
-		B0E8C56D2CF1E5900044D220 /* Severity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Severity.swift; sourceTree = "<group>"; };
 		CAA8FDB42000614600050F77 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		CF72ACE621F714D000461EED /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAEBB1E425161E5B0065ECF0 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -203,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA88D1F62FC332D9006ECD48 /* AllureSwiftXCTest in Frameworks */,
 				DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA88D1F42FC32A49006ECD48 /* AllureSwiftTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				B05F1B1D2CC795E7007D10D5 /* BundleId.swift */,
-				B0E8C56D2CF1E5900044D220 /* Severity.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -469,7 +468,6 @@
 		DAEBB1FF25165D750065ECF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B05F1B1F2CC79893007D10D5 /* XCTest+Allure.swift */,
 				B05F1B212CC798D0007D10D5 /* XCUIElement+Actions.swift */,
 				B05F1B232CC79908007D10D5 /* XCUIElement+Asserts.swift */,
 				B05F1B252CC79929007D10D5 /* XCUIElement+Waiting.swift */,
@@ -533,6 +531,7 @@
 			);
 			name = SwiftRadioTests;
 			packageProductDependencies = (
+				DA88D1F32FC32A49006ECD48 /* AllureSwiftTesting */,
 			);
 			productName = SwiftRadioTests;
 			productReference = B0CEAC232CD7DF810090D6A6 /* SwiftRadioTests.xctest */;
@@ -580,6 +579,7 @@
 			mainGroup = 9409E10D1ABF6FE900312E2B;
 			packageReferences = (
 				DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */,
+				DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */,
 			);
 			productRefGroup = 9409E1171ABF6FEA00312E2B /* Products */;
 			projectDirPath = "";
@@ -633,7 +633,6 @@
 				DAEBB1E825161EE50065ECF0 /* CommonTest.swift in Sources */,
 				B05F1B292CC79F26007D10D5 /* SafariPage.swift in Sources */,
 				DAEBB1EE251622BF0065ECF0 /* StationInfoPage.swift in Sources */,
-				B0E8C56E2CF1E5940044D220 /* Severity.swift in Sources */,
 				DAEBB1EC251621B50065ECF0 /* StationDetailsPage.swift in Sources */,
 				DAF5BB152CFF604C00A9C1E1 /* SkipTest.swift in Sources */,
 				B05F1B1E2CC795E7007D10D5 /* BundleId.swift in Sources */,
@@ -641,7 +640,6 @@
 				B05F1B222CC798D0007D10D5 /* XCUIElement+Actions.swift in Sources */,
 				DAEBB2082517521D0065ECF0 /* RadioInfoTest.swift in Sources */,
 				DAEBB1F0251623960065ECF0 /* RadioInfoPage.swift in Sources */,
-				B05F1B202CC79893007D10D5 /* XCTest+Allure.swift in Sources */,
 				DAEBB1FE251633AB0065ECF0 /* SmokeTest.swift in Sources */,
 				B05F1B262CC79929007D10D5 /* XCUIElement+Waiting.swift in Sources */,
 				DAF5BB132CFF5F8D00A9C1E1 /* CrashTest.swift in Sources */,
@@ -1049,6 +1047,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BorisLys/allure-swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/KaneCheshire/ShowTime.git";
@@ -1060,6 +1066,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA88D1F32FC32A49006ECD48 /* AllureSwiftTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */;
+			productName = AllureSwiftTesting;
+		};
+		DA88D1F52FC332D9006ECD48 /* AllureSwiftXCTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */;
+			productName = AllureSwiftXCTest;
+		};
 		DADDDF452D51E76E00B7AF55 /* ShowTime */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DADDDF3F2D51E43E00B7AF55 /* XCRemoteSwiftPackageReference "ShowTime" */;

@@ -11,10 +11,22 @@
   "defaultOptions" : {
     "codeCoverage" : false,
     "defaultTestExecutionTimeAllowance" : 60,
+    "environmentVariableEntries" : [
+      {
+        "key" : "ALLURE_RESULTS_DIR",
+        "value" : "$(SOURCE_ROOT)\/allure-results"
+      }
+    ],
     "mainThreadCheckerEnabled" : false,
     "maximumTestExecutionTimeAllowance" : 60,
     "maximumTestRepetitions" : 2,
     "repeatInNewRunnerProcess" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SwiftRadio.xcodeproj",
+      "identifier" : "9409E1151ABF6FEA00312E2B",
+      "name" : "SwiftRadio"
+    },
+    "testRepetitionMode" : "retryOnFailure",
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [

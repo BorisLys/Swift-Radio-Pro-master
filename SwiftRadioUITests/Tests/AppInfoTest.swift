@@ -6,30 +6,30 @@
 //  Copyright © 2020 matthewfecher.com. All rights reserved.
 //
 
+import XCTest
+import AllureSwiftXCTest
+
 final class AppInfoTest: CommonTest {
-    
+
     let authorsText = "Matt Fecher & Fethi El Hassasna"
-    
+
     func testOpenWebsiteFromAppInfo() {
-        name("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку Website")
-        
-        step("Нажать на кнопку инфо") {
+        allureName("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку Website")
+
+        allureStep("Нажать на кнопку инфо") {
             MainPage.navigationBarBackButton.tapElement()
-            
-            step("Проверить Автора") {
+            allureStep("Проверить Автора") {
                 AppInfoPage.authorsLabel.verifyLabel(equal: authorsText)
             }
-            step("Проверить наличие картиники") {
+            allureStep("Проверить наличие картинки") {
                 AppInfoPage.swiftImage.verifyElement()
             }
         }
-        step("Открыть веб сайт") {
+        allureStep("Открыть веб сайт") {
             AppInfoPage.websiteButton.tapElement()
-            
-            step("Проверить корректный домен") {
+            allureStep("Проверить корректный домен") {
                 SafariPage.url.verifyText(equal: "github.com")
             }
         }
     }
-
 }
