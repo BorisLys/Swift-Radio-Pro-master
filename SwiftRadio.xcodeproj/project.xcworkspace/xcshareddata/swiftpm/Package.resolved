@@ -7,7 +7,7 @@
       "location" : "https://github.com/BorisLys/allure-swift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "de2dfb344ea8d87b030e45f841cb33f013f3d3cb"
+        "revision" : "8f8276063c02a05955c86d6ed72cda7cde409d1b"
       }
     },
     {
@@ -17,15 +17,6 @@
       "state" : {
         "revision" : "f4e976931fc5f9b7a7d011f40c62a250c4ff53ab",
         "version" : "2.5.3"
-      }
-    },
-    {
-      "identity" : "swift-argument-parser",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-argument-parser.git",
-      "state" : {
-        "revision" : "626b5b7b2f45e1b0b1c6f4a309296d1d21d7311b",
-        "version" : "1.7.1"
       }
     }
   ],

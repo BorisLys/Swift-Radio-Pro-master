@@ -7,15 +7,15 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class CrashTest: CommonTest {
 
     func testCrash() {
-        allureName("Проверка обработки краша приложения в отчете")
+        name("Проверка обработки краша приложения в отчете")
 
         fatalError()
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
     }

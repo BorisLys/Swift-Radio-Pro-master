@@ -7,27 +7,27 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class AppInfoTest: CommonTest {
 
     let authorsText = "Matt Fecher & Fethi El Hassasna"
 
     func testOpenWebsiteFromAppInfo() {
-        allureName("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку Website")
+        name("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку Website")
 
-        allureStep("Нажать на кнопку инфо") {
+        step("Нажать на кнопку инфо") {
             MainPage.navigationBarBackButton.tapElement()
-            allureStep("Проверить Автора") {
+            step("Проверить Автора") {
                 AppInfoPage.authorsLabel.verifyLabel(equal: authorsText)
             }
-            allureStep("Проверить наличие картинки") {
+            step("Проверить наличие картинки") {
                 AppInfoPage.swiftImage.verifyElement()
             }
         }
-        allureStep("Открыть веб сайт") {
+        step("Открыть веб сайт") {
             AppInfoPage.websiteButton.tapElement()
-            allureStep("Проверить корректный домен") {
+            step("Проверить корректный домен") {
                 SafariPage.url.verifyText(equal: "github.com")
             }
         }

@@ -7,92 +7,92 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class RadioInfoTest: CommonTest {
 
     func testOpenWebLink() {
         allureId(123)
-        allureName("Открытие ссылки - matthewfetcher.com")
-        allureDescription("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку matthewfetcher.com")
-        allureSeverity(.blocker)
-        allureOwner("b.lysikov")
-        allureEpic("Экран инфор Радио")
-        allureFeature("Ссылка на сайт")
-        allureStory("Открытие ссылки")
-        allureTag("tag1")
-        allureTag("tag2")
-        allureLink(name: "Allure example", url: "https://allurereport.org/docs/gettingstarted-readability/#severity")
+        name("Открытие ссылки - matthewfetcher.com")
+        description("Проверка отображения элементов на экране и переход на корректную ссылку при нажатии на кнопку matthewfetcher.com")
+        severity(.blocker)
+        owner("b.lysikov")
+        epic("Экран инфор Радио")
+        feature("Ссылка на сайт")
+        story("Открытие ссылки")
+        tag("tag1")
+        tag("tag2")
+        link(name: "Allure example", url: "https://allurereport.org/docs/gettingstarted-readability/#severity")
 
         let versionText = "Xcode 9 / Swift 4"
         let nameOfAppText = "Radio App"
         let textViewText = "FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.\n+ Background Audio performance\n+iTunes API integration to automatically download album art\n+ Loads and parses Icecast metadata (i.e. artist & track names)\n+ Ability to update stations from server without resubmitting to the app store.\n"
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Открыть страницу компании") {
+        step("Открыть страницу компании") {
             StationDetailsPage.companyButton.tapElement()
-            allureStep("Проверить отображение лого") {
+            step("Проверить отображение лого") {
                 RadioInfoPage.logoImage.verifyElement()
             }
-            allureStep("Проверить отображение названия приложения") {
+            step("Проверить отображение названия приложения") {
                 RadioInfoPage.nameOfAppLabel.verifyLabel(equal: nameOfAppText)
             }
-            allureStep("Проверить текст на странице") {
+            step("Проверить текст на странице") {
                 RadioInfoPage.textView.verifyText(equal: textViewText)
             }
-            allureStep("Проверить версию приложения") {
+            step("Проверить версию приложения") {
                 RadioInfoPage.versionLabel.verifyLabel(equal: versionText)
             }
         }
-        allureStep("Нажать на линку") {
+        step("Нажать на линку") {
             RadioInfoPage.linkButton.tapElement()
-            allureStep("Отображается корректный домен") {
+            step("Отображается корректный домен") {
                 SafariPage.url.verifyText(equal: "matthewfecher.com")
             }
         }
     }
 
     func testOpemEmailMeIfWeDontHaveEmail() {
-        allureName("Проверка отображения алерта при нажатии на кнопку email")
+        name("Проверка отображения алерта при нажатии на кнопку email")
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Открыть страницу компании") {
+        step("Открыть страницу компании") {
             StationDetailsPage.companyButton.tapElement()
         }
-        allureStep("Нажать кнопку email") {
+        step("Нажать кнопку email") {
             RadioInfoPage.emailButton.tapElement()
-            allureStep("Проверить заголовок алерта") {
+            step("Проверить заголовок алерта") {
                 RadioInfoPage.alertTitle.verifyLabel(equal: "Could Not Send Email")
             }
-            allureStep("Проверить описание алерта") {
+            step("Проверить описание алерта") {
                 RadioInfoPage.alertDescription.verifyLabel(equal: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
             }
         }
-        allureStep("Закрыть алерт") {
+        step("Закрыть алерт") {
             RadioInfoPage.alertButton.tapElement()
         }
     }
 
     func testClosePage() {
-        allureName("Проверка корректного закрытия текущего экрана")
+        name("Проверка корректного закрытия текущего экрана")
 
         let nameOfStation = MainPage.getStationName(index: 0)
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             addScreenshotToReport()
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Открыть страницу компании") {
+        step("Открыть страницу компании") {
             StationDetailsPage.companyButton.tapElement()
         }
-        allureStep("Нажать кнопку окей") {
+        step("Нажать кнопку окей") {
             RadioInfoPage.okayButton.tapElement()
         }
-        allureStep("Проверить название станции в навигационной панели") {
+        step("Проверить название станции в навигационной панели") {
             StationDetailsPage.navigationBarTitle.verifyLabel(equal: nameOfStation)
         }
     }

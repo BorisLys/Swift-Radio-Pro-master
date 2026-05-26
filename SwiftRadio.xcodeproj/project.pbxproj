@@ -72,7 +72,7 @@
 		CAA8FDB52000614600050F77 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8FDB42000614600050F77 /* RadioPlayer.swift */; };
 		CF72ACE721F7155200461EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF72ACE621F714D000461EED /* Main.storyboard */; };
 		DA88D1F42FC32A49006ECD48 /* AllureSwiftTesting in Frameworks */ = {isa = PBXBuildFile; productRef = DA88D1F32FC32A49006ECD48 /* AllureSwiftTesting */; };
-		DA88D1F62FC332D9006ECD48 /* AllureSwiftXCTest in Frameworks */ = {isa = PBXBuildFile; productRef = DA88D1F52FC332D9006ECD48 /* AllureSwiftXCTest */; };
+		DA88D1F62FC332D9006ECD48 /* AllureXCTest in Frameworks */ = {isa = PBXBuildFile; productRef = DA88D1F52FC332D9006ECD48 /* AllureXCTest */; };
 		DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF452D51E76E00B7AF55 /* ShowTime */; };
 		DADDDF482D51E77A00B7AF55 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = DADDDF472D51E77A00B7AF55 /* ShowTime */; };
 		DAEBB1E525161E5B0065ECF0 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBB1E425161E5B0065ECF0 /* MainPage.swift */; };
@@ -201,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA88D1F62FC332D9006ECD48 /* AllureSwiftXCTest in Frameworks */,
+				DA88D1F62FC332D9006ECD48 /* AllureXCTest in Frameworks */,
 				DADDDF462D51E76E00B7AF55 /* ShowTime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1071,10 +1071,10 @@
 			package = DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */;
 			productName = AllureSwiftTesting;
 		};
-		DA88D1F52FC332D9006ECD48 /* AllureSwiftXCTest */ = {
+		DA88D1F52FC332D9006ECD48 /* AllureXCTest */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA88D1EE2FC32A49006ECD48 /* XCRemoteSwiftPackageReference "allure-swift" */;
-			productName = AllureSwiftXCTest;
+			productName = AllureXCTest;
 		};
 		DADDDF452D51E76E00B7AF55 /* ShowTime */ = {
 			isa = XCSwiftPackageProductDependency;

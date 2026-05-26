@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 class CommonTest: XCTestCase {
 

@@ -7,15 +7,15 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class SkipTest: CommonTest {
 
     func testSkip() throws {
-        allureName("Проверка обработки Skip теста в отчете")
+        name("Проверка обработки Skip теста в отчете")
 
         throw XCTSkip("Skip теста")
-        allureStep("Шаг 1") {
+        step("Шаг 1") {
             MainPage.getStation(index: 0).tapElement()
         }
     }

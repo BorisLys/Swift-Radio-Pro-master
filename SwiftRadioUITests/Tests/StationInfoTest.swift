@@ -7,44 +7,44 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class StationInfoTest: CommonTest {
 
     func testOpenStationDetailsByTapOnNowPlayingButton() {
-        allureName("Проверка отображение элементов на экране с информацией о станции, также корректную работу переходов по нажатию на кнопку назад(в Navigation bar) и ок на самом экране")
-        allureSeverity(.critical)
+        name("Проверка отображение элементов на экране с информацией о станции, также корректную работу переходов по нажатию на кнопку назад(в Navigation bar) и ок на самом экране")
+        severity(.critical)
 
         let stationName = MainPage.getStationName(index: 0)
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать на инфо кнопку") {
+        step("Нажать на инфо кнопку") {
             StationDetailsPage.infoButton.tapElement()
-            allureStep("Проверить отображение названия") {
+            step("Проверить отображение названия") {
                 StationInfoPage.stationNameLabel.verifyLabel(equal: stationName)
             }
-            allureStep("Проверить отображение картинки") {
+            step("Проверить отображение картинки") {
                 StationInfoPage.stationImage.verifyElement()
             }
-            allureStep("Проверить отображение текста") {
+            step("Проверить отображение текста") {
                 StationInfoPage.stationDeskLabel.verifyElement()
             }
         }
-        allureStep("Нажать кнопку ОК") {
+        step("Нажать кнопку ОК") {
             StationInfoPage.okayButton.tapElement()
-            allureStep("Проверить название в Navigation bar") {
+            step("Проверить название в Navigation bar") {
                 StationDetailsPage.navigationBarTitle.verifyLabel(equal: stationName)
             }
         }
-        allureStep("Нажать на инфо кнопку") {
+        step("Нажать на инфо кнопку") {
             StationDetailsPage.infoButton.tapElement()
         }
-        allureStep("Нажать кнопку назад") {
+        step("Нажать кнопку назад") {
             StationInfoPage.navigationBarBackButton.tapElement()
         }
-        allureStep("Проверить название в Navigation bar") {
+        step("Проверить название в Navigation bar") {
             StationDetailsPage.navigationBarTitle.verifyLabel(equal: stationName)
         }
     }

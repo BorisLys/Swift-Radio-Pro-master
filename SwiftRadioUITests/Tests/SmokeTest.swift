@@ -7,130 +7,130 @@
 //
 
 import XCTest
-import AllureSwiftXCTest
+import AllureXCTest
 
 final class SmokeTest: CommonTest {
 
     func testDisplayNowPlayingButton() {
-        allureName("Проверка правильного отображения кнопки Now Playing в Navigation bar")
+        name("Проверка правильного отображения кнопки Now Playing в Navigation bar")
 
-        allureStep("Проверить что при старте приложения кнопка play не отображается") {
+        step("Проверить что при старте приложения кнопка play не отображается") {
             MainPage.playbutton.verifyElement(event: .disabled)
         }
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать кнопку назад") {
+        step("Нажать кнопку назад") {
             StationDetailsPage.navigationBarBackButton.tapElement()
         }
-        allureStep("Проверить что кнопка play отображается") {
+        step("Проверить что кнопка play отображается") {
             MainPage.playbutton.verifyElement()
         }
     }
 
     func testDisplaySelectedStationInPlayButton() {
-        allureName("Проверка отображения выбранной станции в кнопке Play")
+        name("Проверка отображения выбранной станции в кнопке Play")
 
         let nameOfStation = MainPage.getStationName(index: 0)
 
-        allureStep("Проверить отображение текста в кнопке play") {
+        step("Проверить отображение текста в кнопке play") {
             MainPage.playbutton.verifyLabel(equal: "Choose a station above to begin")
         }
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать кнопку назад") {
+        step("Нажать кнопку назад") {
             StationDetailsPage.navigationBarBackButton.tapElement()
         }
-        allureStep("Проверить отображение станции в кнопке play") {
+        step("Проверить отображение станции в кнопке play") {
             MainPage.playbutton.verifyLabelContain(contain: nameOfStation)
         }
     }
 
     func testElementExistOnScreen() {
-        allureName("Проверка отображения всех элементов в ячейке")
+        name("Проверка отображения всех элементов в ячейке")
 
-        allureStep("Проверить отображение станции") {
+        step("Проверить отображение станции") {
             MainPage.getStation(index: 0).verifyLabel(equal: "Absolute Country Hits")
         }
-        allureStep("Проверить отображение песни") {
+        step("Проверить отображение песни") {
             MainPage.getStationDescription(index: 0).verifyLabel(equal: "The Music Starts Here")
         }
     }
 
     func testPauseStation() {
-        allureName("Проверка статуса - пауза для трека с радио")
+        name("Проверка статуса - пауза для трека с радио")
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать на плей") {
+        step("Нажать на плей") {
             StationDetailsPage.playButton.tapElement()
         }
-        allureStep("Проверить паузу") {
+        step("Проверить паузу") {
             StationDetailsPage.stopButton.verifyElement()
         }
     }
 
     func testStopStation() {
-        allureName("Проверка статуса - стоп для трека с радио")
+        name("Проверка статуса - стоп для трека с радио")
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать на стоп") {
+        step("Нажать на стоп") {
             StationDetailsPage.stopButton.tapElement()
-            allureStep("Проверить лейбл станции") {
+            step("Проверить лейбл станции") {
                 StationDetailsPage.songLabel.verifyLabel(equal: "Station Stopped...")
             }
         }
     }
 
     func testErrorStatusForSong() {
-        allureName("Проверка статуса - ошибка для трека с радио")
+        name("Проверка статуса - ошибка для трека с радио")
 
-        allureStep("Открыть вторую станцию") {
+        step("Открыть вторую станцию") {
             MainPage.getStation(index: 1).tapElement()
         }
-        allureStep("Проверить статус ошибки") {
+        step("Проверить статус ошибки") {
             StationDetailsPage.songLabel.verifyLabel(equal: "Error Playing")
         }
     }
 
     func testOpenStationDetailsByTapOnNowPlayingButton() {
-        allureName("Проверка открытия правильной станции по нажатию на кнопку Now Playing в NavBar")
+        name("Проверка открытия правильной станции по нажатию на кнопку Now Playing в NavBar")
 
         let nameOfStation = MainPage.getStationName(index: 0)
 
-        allureStep("Открыть первую станцию") {
+        step("Открыть первую станцию") {
             MainPage.getStation(index: 0).tapElement()
         }
-        allureStep("Нажать кнопку назад") {
+        step("Нажать кнопку назад") {
             StationDetailsPage.navigationBarBackButton.tapElement()
         }
-        allureStep("Нажать кнопку Play") {
+        step("Нажать кнопку Play") {
             MainPage.playbutton.tapElement()
         }
-        allureStep("Проверить станцию в NavBar") {
+        step("Проверить станцию в NavBar") {
             StationDetailsPage.navigationBarTitle.verifyText(equal: nameOfStation)
         }
     }
 
     func testOpenStationDetailsByTapOnPlayingButton() {
-        allureName("Проверка открытия правильной станции по нажатию на кнопку Play")
+        name("Проверка открытия правильной станции по нажатию на кнопку Play")
 
         let nameOfStation = MainPage.getStationName(index: 1)
 
-        allureStep("Открыть вторую станцию") {
+        step("Открыть вторую станцию") {
             MainPage.getStation(index: 1).tapElement()
         }
-        allureStep("Нажать кнопку назад") {
+        step("Нажать кнопку назад") {
             StationDetailsPage.navigationBarBackButton.tapElement()
         }
-        allureStep("Нажать на кнопку плей") {
+        step("Нажать на кнопку плей") {
             MainPage.playbutton.tapElement()
         }
-        allureStep("Проверить название станции в NavBar") {
+        step("Проверить название станции в NavBar") {
             MainPage.navigationBarTitle.verifyLabel(equal: nameOfStation)
         }
     }
