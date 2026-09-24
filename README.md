@@ -15,7 +15,7 @@ A total of 22 UI tests have been written to verify the main scenarios identified
 
 Test results are reported with [Allure Report 3](https://allurereport.org/docs/v3/). Test metadata (epic, feature, severity, attachments, etc.) is added with the [allure-swift](https://github.com/BorisLys/allure-swift) package: `AllureXCTest` for XCTest and `AllureSwiftTesting` for Swift Testing.
 
-**Latest CI test run report: https://borislys.github.io/Swift-Radio-Pro-master/**
+**Latest CI test run report:** [borislys.github.io/Swift-Radio-Pro-master](https://borislys.github.io/Swift-Radio-Pro-master/)
 
 The report is built by the [Github cloud run test](.github/workflows/test.yaml) workflow, which runs every Monday or manually with the `Smoke` or `Regression` test plan. It is published to GitHub Pages from the `gh-pages` branch. The history of the last 20 runs is stored in `history.jsonl` in the same branch, so the report shows trends between runs.
 
