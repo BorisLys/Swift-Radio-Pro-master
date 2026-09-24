@@ -132,6 +132,8 @@ jobs:
 
       - name: Generate Allure files
         run: |
+          # Папка может прийти из репозитория со старыми результатами — начинаем с чистой
+          rm -rf ${{ env.ALLURE_RESULTS }} allure-report
           mkdir ${{ env.ALLURE_RESULTS }}
           ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
           chmod +x scripts/testOpsReportFormatter.sh
