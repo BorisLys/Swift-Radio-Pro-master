@@ -87,8 +87,13 @@ jobs:
           curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
           chmod +x xcresults
           
-      - name: Install Allure
-        run: npm install -g allure
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Allure 3
+        run: npm install -g allure@3
 
       - name: Run Ui Tests
         run: |
@@ -117,6 +122,16 @@ jobs:
           ALLURE_VERSION=$(allure --version)
           echo "ALLURE_VERSION=$ALLURE_VERSION" >> $GITHUB_ENV
 
+      - name: Restore Allure history from gh-pages
+        run: |
+          mkdir -p allure-history
+          if git fetch --depth=1 origin gh-pages; then
+            git show FETCH_HEAD:history.jsonl > allure-history/history.jsonl \
+              || { echo "history.jsonl не найден в gh-pages, начинаем историю с нуля"; rm -f allure-history/history.jsonl; }
+          else
+            echo "Ветка gh-pages не найдена, начинаем историю с нуля"
+          fi
+
       - name: Generate Allure files
         run: |
           mkdir ${{ env.ALLURE_RESULTS }}
@@ -125,8 +140,9 @@ jobs:
           scripts/testOpsReportFormatter.sh
           chmod +x scripts/createAllureEnvironment.sh
           scripts/createAllureEnvironment.sh
-          mkdir allure-report
-          allure generate ${{ env.ALLURE_RESULTS }} -o allure-report
+          allure generate ${{ env.ALLURE_RESULTS }} --config allurerc.mjs --history-limit 20
+          # Кладём историю в отчёт, чтобы она опубликовалась в gh-pages и была доступна следующему запуску
+          cp allure-history/history.jsonl allure-report/history.jsonl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

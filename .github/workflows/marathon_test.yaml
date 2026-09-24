@@ -75,8 +75,13 @@ jobs:
           curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
           chmod +x xcresults
 
-      - name: Install Allure
-        run: brew install allure
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Allure 3
+        run: npm install -g allure@3
 
       - name: Install Marathon
         run: |

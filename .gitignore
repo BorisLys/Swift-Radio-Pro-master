@@ -47,3 +47,6 @@ playground.xcworkspace
 .build/
 .swiftpm
 
+# Allure
+allure-history/
+
