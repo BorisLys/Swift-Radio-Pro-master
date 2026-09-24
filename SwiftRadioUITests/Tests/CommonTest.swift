@@ -25,7 +25,7 @@ class CommonTest: XCTestCase {
     }
 
     func addScreenshotToReport() {
-        allureAttachment(
+        attachment(
             name: "screenshot",
             data: XCUIScreen.main.screenshot().pngRepresentation,
             type: "public.png"

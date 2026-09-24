@@ -97,20 +97,18 @@ jobs:
 
       - name: Run Ui Tests
         run: |
-          if [ -z "${{ github.event.inputs.test_plan_type }}" ]; then
-            xcodebuild test-without-building \
-            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_Regression_iphonesimulator18.0-arm64.xctestrun \
-            -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult \
-            | xcbeautify --renderer github-actions
-          else
-            xcodebuild test-without-building \
-            -xctestrun DerivedData/Build/Products/SwiftRadioUITests_${{ github.event.inputs.test_plan_type }}_iphonesimulator18.0-arm64.xctestrun \
-            -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
-            -resultBundlePath ./TestResults.xcresult \
-            CODE_SIGNING_ALLOWED='NO' \
-            | xcbeautify --renderer github-actions
-          fi
+          # По cron input пустой — запускаем Regression
+          TEST_PLAN="${{ github.event.inputs.test_plan_type }}"
+          TEST_PLAN="${TEST_PLAN:-Regression}"
+          # Имя .xctestrun содержит версию SDK раннера, поэтому ищем по маске
+          XCTESTRUN=$(ls DerivedData/Build/Products/SwiftRadioUITests_${TEST_PLAN}_iphonesimulator*.xctestrun | head -1)
+          echo "xctestrun: $XCTESTRUN"
+          xcodebuild test-without-building \
+          -xctestrun "$XCTESTRUN" \
+          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          -resultBundlePath ./TestResults.xcresult \
+          CODE_SIGNING_ALLOWED='NO' \
+          | xcbeautify --renderer github-actions
         continue-on-error: true
 
       - name: Set env for allure
